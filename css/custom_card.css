@@ -1,0 +1,58 @@
+/* 1. 设置文章卡片容器为相对定位 */
+#recent-posts > .recent-post-item {
+    position: relative;
+    overflow: hidden;
+}
+
+/* 2. 将文章信息栏（分类/标签）移动并浮动到图片上 */
+#recent-posts > .recent-post-item .post_meta_container {
+    position: absolute;
+    top: 15px;      /* 距离顶部距离 */
+    left: 15px;     /* 距离左侧距离 */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 10;    /* 确保在图片之上 */
+}
+
+/* 3. 样式化浮动的标签和分类 */
+#recent-posts > .recent-post-item .article-meta__categories,
+#recent-posts > .recent-post-item .article-meta__tags {
+    background: rgba(0, 0, 0, 0.45); /* 半透明黑色背景 */
+    backdrop-filter: blur(5px);      /* 毛玻璃效果 */
+    padding: 2px 10px;
+    border-radius: 8px;
+    color: #fff !important;
+    font-size: 16px;
+    width: fit-content;
+}
+
+/* 确保链接文字也是白色 */
+#recent-posts > .recent-post-item .article-meta__categories a,
+#recent-posts > .recent-post-item .article-meta__tags a {
+    color: #fff !important;
+    margin: 0 3px;
+}
+
+/* 4. 隐藏下方描述文字（如果不需要的话） */
+#recent-posts > .recent-post-item .content {
+    display: none;
+}
+
+/* 5. 调整下方信息栏，只显示标题和时间 */
+#recent-posts > .recent-post-item .recent-post-info {
+    padding: 15px 20px !important;
+}
+
+#recent-posts > .recent-post-item .article-title {
+    margin-top: 0;
+    font-size: 1.3em;
+}
+
+/* 移动端适配：防止手机上文字太乱 */
+@media screen and (max-width: 768px) {
+    #recent-posts > .recent-post-item .post_meta_container {
+        top: 10px;
+        left: 10px;
+    }
+}

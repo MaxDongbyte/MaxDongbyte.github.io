@@ -1,0 +1,322 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>一键部署edgetunnel到Cloudflare,免费获取订阅链接 | GoldenMagicBox</title><meta name="author" content="金融老民工"><meta name="copyright" content="金融老民工"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本教程教你如何在Cloudflare中部署GitHub项目edgetunnel来免费获取上网节点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一键部署edgetunnel到Cloudflare,免费获取订阅链接">
+<meta property="og:url" content="http://jinmohe.com/posts/30755">
+<meta property="og:site_name" content="GoldenMagicBox">
+<meta property="og:description" content="本教程教你如何在Cloudflare中部署GitHub项目edgetunnel来免费获取上网节点">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.youtube.com/vi/cuX_-cCpYSs/hqdefault.jpg">
+<meta property="article:published_time" content="2025-06-29T16:58:25.000Z">
+<meta property="article:modified_time" content="2026-07-30T06:24:54.199Z">
+<meta property="article:author" content="金融老民工">
+<meta property="article:tag" content="Cloudflare">
+<meta property="article:tag" content="GitHub项目">
+<meta property="article:tag" content="节点自建教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.youtube.com/vi/cuX_-cCpYSs/hqdefault.jpg">
+<meta property="fb:app_id" content="1397748364585761"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "一键部署edgetunnel到Cloudflare,免费获取订阅链接",
+  "url": "http://jinmohe.com/posts/30755",
+  "image": "https://img.youtube.com/vi/cuX_-cCpYSs/hqdefault.jpg",
+  "datePublished": "2025-06-29T16:58:25.000Z",
+  "dateModified": "2026-07-30T06:24:54.199Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "金融老民工",
+      "url": "http://jinmohe.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="http://jinmohe.com/posts/30755"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//www.clarity.ms"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: '',
+  enable_page_level_ads: 'true'
+});</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-25GYY7D742"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-25GYY7D742')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-25GYY7D742', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "qmhfv3vgur");
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: 金融老民工","link":"链接: ","source":"来源: GoldenMagicBox","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '一键部署edgetunnel到Cloudflare,免费获取订阅链接',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7861705837127742" crossorigin="anonymous"></script><script src="https://analytics.ahrefs.com/analytics.js" data-key="SFsrgw4YGBm/6k2xm2jqdg" async></script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.2"></head><body><div class="bg-animation" id="web_bg" style="background-color: #5caf27;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/loading.svg" data-lazy-src="/img/avatar.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/videos/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/parody/"><i class="fa-fw fas fa-coffee"></i><span> 娱乐</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/coverdefault.webp);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/loading.svg" data-lazy-src="/img/logo.webp" alt="Logo"><span class="site-name">GoldenMagicBox</span></a><a class="nav-page-title" href="/"><span class="site-name">一键部署edgetunnel到Cloudflare,免费获取订阅链接</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/videos/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/parody/"><i class="fa-fw fas fa-coffee"></i><span> 娱乐</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">一键部署edgetunnel到Cloudflare,免费获取订阅链接</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2025-06-29T16:58:25.000Z" title="发表于 2025-06-30 00:58:25">2025-06-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%BC%80%E7%9C%BC%E7%9C%8B%E4%B8%96%E7%95%8C/">开眼看世界</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div class="video-container">
+  <iframe
+    src="https://www.youtube.com/embed/cuX_-cCpYSs"
+    title="YouTube video"
+    frameborder="0"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<hr>
+<h2 id="免费获取订阅链接-GitHub-Cloudflare-Workers"><a href="#免费获取订阅链接-GitHub-Cloudflare-Workers" class="headerlink" title="免费获取订阅链接(GitHub + Cloudflare Workers)"></a>免费获取订阅链接(GitHub + Cloudflare Workers)</h2><h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h3><p>本教程旨在帮助小白用户解决没有 VPS 和付费机场订阅链接的困扰，通过 Cloudflare Workers 实现免费的科学上网。</p>
+<h3 id="2-前置准备"><a href="#2-前置准备" class="headerlink" title="2. 前置准备"></a>2. 前置准备</h3><ul>
+<li>一个 GitHub 账号 (用于访问 Worker 代码)</li>
+<li>一个 Cloudflare 账号 (免费注册并登录)</li>
+<li>一个 V2RayN、Clash 或 Singbox 等支持 VLESS 订阅的客户端</li>
+</ul>
+<h3 id="3-操作步骤详解"><a href="#3-操作步骤详解" class="headerlink" title="3. 操作步骤详解"></a>3. 操作步骤详解</h3><h4 id="步骤-1-获取-Worker-代码"><a href="#步骤-1-获取-Worker-代码" class="headerlink" title="步骤 1: 获取 Worker 代码"></a>步骤 1: 获取 Worker 代码</h4><ol>
+<li>打开浏览器，访问 GitHub 官网：<a target="_blank" rel="noopener" href="https://github.com/">https://github.com</a> ，在搜索框中输入 <code>/cmliu</code> 并回车，找到 <a target="_blank" rel="noopener" href="https://github.com/cmliu/edgetunnel"><code>edgetunnel</code> 项目</a><ul>
+<li>此项目由 cmliu 大佬维护，提供了基于 Cloudflare Workers 平台部署 VLESS 配置信息转换为订阅内容的解决方案。</li>
+</ul>
+</li>
+<li>点击进入 <code>edgetunnel</code> 项目，在文件列表中，找到并点击 <code>worker.js</code> 文件，在打开的代码页面，点击右上角的 <strong>“Copy raw file”</strong> 按钮，将 Worker 的全部代码复制到剪贴板。</li>
+</ol>
+<h4 id="步骤-2-登录-Cloudflare-并创建-Worker"><a href="#步骤-2-登录-Cloudflare-并创建-Worker" class="headerlink" title="步骤 2: 登录 Cloudflare 并创建 Worker"></a>步骤 2: 登录 Cloudflare 并创建 Worker</h4><ol>
+<li>打开浏览器，访问 Cloudflare 官网并登录账号：<a target="_blank" rel="noopener" href="https://www.cloudflare.com/">https://www.cloudflare.com</a><ul>
+<li>如果没有 Cloudflare 账号，按照页面提示注册一个，它是免费的。</li>
+</ul>
+</li>
+<li>在 Cloudflare 仪表盘左侧导航栏，点击 <strong>“计算 (Workers)”</strong>。</li>
+<li>展开后，点击 <strong>“Workers 和 Pages”</strong>。</li>
+<li>在右侧的主面板中，点击 <strong>“创建”</strong> 按钮。</li>
+<li>选择第三个选项 <strong>“从 Hello World! 开始”</strong> (从现有 Git 存储库克隆)，然后点击右侧的 <strong>“开始使用”</strong>。</li>
+<li><code>Worker</code> 名称可以保持默认，然后点击右下角的 <strong>“部署”</strong> 按钮。</li>
+<li>等待部署完成，成功后会显示一个地球图标，点击 <strong>“继续处理项目”</strong>。</li>
+</ol>
+<h4 id="步骤-3-粘贴-Worker-代码并部署"><a href="#步骤-3-粘贴-Worker-代码并部署" class="headerlink" title="步骤 3: 粘贴 Worker 代码并部署"></a>步骤 3: 粘贴 Worker 代码并部署</h4><ol>
+<li>进入项目页面后，点击右上角的 <strong>“编辑代码”</strong> 按钮。</li>
+<li>在左侧的代码编辑框中，选中所有默认代码 (Ctrl+A)，然后删除 (Delete)。</li>
+<li>将步骤 1 中复制的 <code>worker.js</code> 代码粘贴到此编辑框中 (Ctrl+V) 。</li>
+<li>粘贴完成后，点击右上角的 <strong>“部署”</strong> 按钮 。</li>
+<li>等待部署完成，底部会显示 “已保存” 的提示 。</li>
+</ol>
+<h4 id="步骤-4-配置环境变量"><a href="#步骤-4-配置环境变量" class="headerlink" title="步骤 4: 配置环境变量"></a>步骤 4: 配置环境变量</h4><ol>
+<li>回到 “Workers 和 Pages” 页面 (点击左上角的箭头返回或重新进入 Workers 页面) 。</li>
+<li>找到刚刚创建的 Worker 项目，点击进入 。</li>
+<li>在上方导航栏中，点击 <strong>“设置”</strong> 。</li>
+<li>向下滚动，找到 <strong>“变量和机密”</strong> 部分 。</li>
+<li>点击右侧的 <strong>“添加”</strong> 按钮 。</li>
+<li>在弹出的 “添加环境变量” 窗口中：<ul>
+<li><strong>变量名称 (Variable Name):</strong> 输入 <code>UUID</code> (注意：必须是大写) 。</li>
+<li><strong>值 (Value):</strong> 输入任意字符串，例如 <code>sub</code> 。</li>
+</ul>
+</li>
+<li>点击右下角的 <strong>“保存”</strong> 按钮 。<ul>
+<li>此处可能有报错，但不影响后续使用，若有，可忽略</li>
+</ul>
+</li>
+</ol>
+<h4 id="步骤-5-可选-绑定自定义域名"><a href="#步骤-5-可选-绑定自定义域名" class="headerlink" title="步骤 5: (可选) 绑定自定义域名"></a>步骤 5: (可选) 绑定自定义域名</h4><p>将订阅链接简化为更易记忆的域名。如果没有域名，可以跳过此步骤。</p>
+<ol>
+<li>在 “设置” 页面中，找到 <strong>“域和路由”</strong> 部分。</li>
+<li>点击 <strong>“添加”</strong> 按钮。</li>
+<li>在 “自定义域” 文本框中，输入已添加到 Cloudflare 的自定义子域名。</li>
+<li>点击右下角的 <strong>“添加域”</strong> 按钮 。<ul>
+<li>稍等片刻，该自定义域名将生效。</li>
+</ul>
+</li>
+</ol>
+<h4 id="步骤-6-获取-VLESS-订阅链接，导入到客户端并测试"><a href="#步骤-6-获取-VLESS-订阅链接，导入到客户端并测试" class="headerlink" title="步骤 6: 获取 VLESS 订阅链接，导入到客户端并测试"></a>步骤 6: 获取 VLESS 订阅链接，导入到客户端并测试</h4><p>现在， Worker 订阅转换器已经成功部署并运行。</p>
+<ol>
+<li>在浏览器中输入默认域名或您自定义的域名，在域名后面加上步骤 4 中设置的变量值。</li>
+<li>打开这个完整的订阅链接，点击浏览器弹窗中的“复制到剪贴板”，或直接复制地址栏中的整个 URL。</li>
+<li>将订阅链接导入到V2rayN、Sing-Box或Clash等代理客户端中。</li>
+</ol>
+<h3 id="4-优势与注意事项"><a href="#4-优势与注意事项" class="headerlink" title="4. 优势与注意事项"></a>4. 优势与注意事项</h3><p><strong>优势：</strong></p>
+<ul>
+<li><strong>免费：</strong> 利用 Cloudflare Workers 的免费额度，无需支付服务器费用。</li>
+<li><strong>稳定：</strong> Cloudflare 全球分布的节点，通常能提供较好的连接稳定性。</li>
+<li><strong>多协议支持：</strong> <code>edgetunnel</code> 项目支持 VLESS、VMess、Trojan、ShadowSocks 等多种协议，兼容性强。</li>
+<li><strong>自定义域名：</strong> 可以绑定自己的域名，避免复杂的 Workers.dev 域名。</li>
+</ul>
+<p><strong>注意事项：</strong></p>
+<ul>
+<li><strong>免费额度限制：</strong> Cloudflare Workers 免费套餐每月有 10 万次请求的限制，对于个人日常使用通常足够。</li>
+<li><strong>IP 可用性：</strong> 免费节点可能因使用人数增多或滥用而导致 IP 被封锁，届时可能需要重新部署或等待项目更新。</li>
+<li><strong>遵守当地法律法规：</strong> 请务必在遵守当地法律法规的前提下使用此服务。</li>
+</ul>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%8A%82%E7%82%B9%E8%87%AA%E5%BB%BA%E6%95%99%E7%A8%8B/">节点自建教程</a><a class="post-meta__tags" href="/tags/GitHub%E9%A1%B9%E7%9B%AE/">GitHub项目</a><a class="post-meta__tags" href="/tags/Cloudflare/">Cloudflare</a></div><div class="post-share"><div class="social-share" data-image="https://img.youtube.com/vi/cuX_-cCpYSs/hqdefault.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related  no-desc" href="/posts/14451" title="fnOS飞牛NAS中使用Cloudflared实现内网穿透"><img class="cover" src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/UytWnVxVwpo/hqdefault.jpg" onerror="onerror=null;src='/img/404.webp'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">fnOS飞牛NAS中使用Cloudflared实现内网穿透</div></div></div></a><a class="pagination-related  no-desc" href="/posts/41831" title="AI 一键生成中文字幕！繁体/简体全搞定（OpenAI-Whisper教程）"><img class="cover" src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/Rw9a2XpC_aI/hqdefault.jpg" onerror="onerror=null;src='/img/404.webp'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">AI 一键生成中文字幕！繁体/简体全搞定（OpenAI-Whisper教程）</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related no-desc" href="/posts/38500" title="Github项目Sublink-Worker：自建网站转换订阅链接"><img class="cover" src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/9H_RM0D5DP4/hqdefault.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-10</div><div class="info-item-2">Github项目Sublink-Worker：自建网站转换订阅链接</div></div></div></a><a class="pagination-related no-desc" href="/posts/48949" title="手把手教你安装和配置代理面板"><img class="cover" src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/ANRsEreBKOg/hqdefault.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-22</div><div class="info-item-2">手把手教你安装和配置代理面板</div></div></div></a><a class="pagination-related no-desc" href="/posts/63924" title="3x-ui| s-ui 代理节点搭建组合流程全教程"><img class="cover" src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/_eLH3uXceiw/hqdefault.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-03</div><div class="info-item-2">3x-ui| s-ui 代理节点搭建组合流程全教程</div></div></div></a><a class="pagination-related no-desc" href="/posts/17467" title="CloudFlare+D1数据库部署MoonTV"><img class="cover" src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/3XifLkuhaFA/hqdefault.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-10</div><div class="info-item-2">CloudFlare+D1数据库部署MoonTV</div></div></div></a><a class="pagination-related no-desc" href="/posts/22677" title="CloudFlare-ImgBed:开源免费的个人图床，手把手教你部署到Cloudflare"><img class="cover" src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/kmHB5ZJ4AAk/hqdefault.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-25</div><div class="info-item-2">CloudFlare-ImgBed:开源免费的个人图床，手把手教你部署到Cloudflare</div></div></div></a><a class="pagination-related no-desc" href="/posts/35217" title="用 Cloudflare 部署 Cloud Mail：成本、限制与适用场景"><img class="cover" src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/xABA7VxJXDs/hqdefault.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-07-08</div><div class="info-item-2">用 Cloudflare 部署 Cloud Mail：成本、限制与适用场景</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/loading.svg" data-lazy-src="/img/avatar.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">金融老民工</div><div class="author-info-description">分享网络技术、海外通信、跨境支付、工具软件教程。提供技术指南、海外账号注册技巧与数字生活解决方案。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://www.youtube.com/@LaoMinGong"><i class="fab fa-youtube"></i><span>我的youtube频道</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">好玩儿、开放、深思、包容</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%8D%E8%B4%B9%E8%8E%B7%E5%8F%96%E8%AE%A2%E9%98%85%E9%93%BE%E6%8E%A5-GitHub-Cloudflare-Workers"><span class="toc-number">1.</span> <span class="toc-text">免费获取订阅链接(GitHub + Cloudflare Workers)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-number">1.1.</span> <span class="toc-text">1. 前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%89%8D%E7%BD%AE%E5%87%86%E5%A4%87"><span class="toc-number">1.2.</span> <span class="toc-text">2. 前置准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.3.</span> <span class="toc-text">3. 操作步骤详解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-1-%E8%8E%B7%E5%8F%96-Worker-%E4%BB%A3%E7%A0%81"><span class="toc-number">1.3.1.</span> <span class="toc-text">步骤 1: 获取 Worker 代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-2-%E7%99%BB%E5%BD%95-Cloudflare-%E5%B9%B6%E5%88%9B%E5%BB%BA-Worker"><span class="toc-number">1.3.2.</span> <span class="toc-text">步骤 2: 登录 Cloudflare 并创建 Worker</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-3-%E7%B2%98%E8%B4%B4-Worker-%E4%BB%A3%E7%A0%81%E5%B9%B6%E9%83%A8%E7%BD%B2"><span class="toc-number">1.3.3.</span> <span class="toc-text">步骤 3: 粘贴 Worker 代码并部署</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-4-%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">1.3.4.</span> <span class="toc-text">步骤 4: 配置环境变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-5-%E5%8F%AF%E9%80%89-%E7%BB%91%E5%AE%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D"><span class="toc-number">1.3.5.</span> <span class="toc-text">步骤 5: (可选) 绑定自定义域名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-6-%E8%8E%B7%E5%8F%96-VLESS-%E8%AE%A2%E9%98%85%E9%93%BE%E6%8E%A5%EF%BC%8C%E5%AF%BC%E5%85%A5%E5%88%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%B9%B6%E6%B5%8B%E8%AF%95"><span class="toc-number">1.3.6.</span> <span class="toc-text">步骤 6: 获取 VLESS 订阅链接，导入到客户端并测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%BC%98%E5%8A%BF%E4%B8%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.4.</span> <span class="toc-text">4. 优势与注意事项</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/35217" title="用 Cloudflare 部署 Cloud Mail：成本、限制与适用场景"><img src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/xABA7VxJXDs/hqdefault.jpg" onerror="this.onerror=null;this.src='/img/404.webp'" alt="用 Cloudflare 部署 Cloud Mail：成本、限制与适用场景"/></a><div class="content"><a class="title" href="/posts/35217" title="用 Cloudflare 部署 Cloud Mail：成本、限制与适用场景">用 Cloudflare 部署 Cloud Mail：成本、限制与适用场景</a><time datetime="2026-07-07T23:18:19.000Z" title="发表于 2026-07-08 07:18:19">2026-07-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/7316" title="美区 PayPal 绑定 Wise 美元账户收款"><img src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/MgStXTb4glI/hqdefault.jpg" onerror="this.onerror=null;this.src='/img/404.webp'" alt="美区 PayPal 绑定 Wise 美元账户收款"/></a><div class="content"><a class="title" href="/posts/7316" title="美区 PayPal 绑定 Wise 美元账户收款">美区 PayPal 绑定 Wise 美元账户收款</a><time datetime="2026-07-07T23:07:20.000Z" title="发表于 2026-07-08 07:07:20">2026-07-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/15519" title="频道视频完整列表索引"><img src="/img/loading.svg" data-lazy-src="/img/cover.webp" onerror="this.onerror=null;this.src='/img/404.webp'" alt="频道视频完整列表索引"/></a><div class="content"><a class="title" href="/posts/15519" title="频道视频完整列表索引">频道视频完整列表索引</a><time datetime="2026-06-30T13:49:48.000Z" title="发表于 2026-06-30 21:49:48">2026-06-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/52263" title="自建 VPS 教程"><img src="/img/loading.svg" data-lazy-src="https://img.didadi.xyz/file/1782806903468_VPS.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="自建 VPS 教程"/></a><div class="content"><a class="title" href="/posts/52263" title="自建 VPS 教程">自建 VPS 教程</a><time datetime="2026-06-29T16:45:58.000Z" title="发表于 2026-06-30 00:45:58">2026-06-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/50887" title="华为手机安装谷歌框架GMS | 安装Google Play谷歌应用商店全教程"><img src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/nZj1pNTwOIk/hqdefault.jpg" onerror="this.onerror=null;this.src='/img/404.webp'" alt="华为手机安装谷歌框架GMS | 安装Google Play谷歌应用商店全教程"/></a><div class="content"><a class="title" href="/posts/50887" title="华为手机安装谷歌框架GMS | 安装Google Play谷歌应用商店全教程">华为手机安装谷歌框架GMS | 安装Google Play谷歌应用商店全教程</a><time datetime="2026-06-28T18:12:02.000Z" title="发表于 2026-06-29 02:12:02">2026-06-29</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/coverdefault.webp);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2020 - 2026 By 金融老民工</span></div><div class="footer_custom_text"><span style="white-space:nowrap;"><i class="fas fa-envelope" style="color:#2CA5E0;margin-right:4px;"></i><a href="mailto:jinmohe2000@gmail.com">Email</a>&nbsp;&nbsp;|&nbsp;&nbsp;<i class="fab fa-telegram-plane" style="color:#2CA5E0;margin-right:4px;"></i><a target="_blank" rel="noopener" href="https://t.me/laomingong">Telegram</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/about/">关于本站</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/privacy/">隐私政策</a></span> 
+</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: true,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      true
+        ? pjax.loadUrl('/404')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

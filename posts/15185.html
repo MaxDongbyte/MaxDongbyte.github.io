@@ -1,0 +1,321 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>用Google Colab免费部署MoneyPrinterTurbo，一键生成短视频！ | GoldenMagicBox</title><meta name="author" content="金融老民工"><meta name="copyright" content="金融老民工"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本教程介绍如何在Google Colab云端免费部署GitHub项目MoneyPrinterTurbo来一键生成短视频">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用Google Colab免费部署MoneyPrinterTurbo，一键生成短视频！">
+<meta property="og:url" content="http://jinmohe.com/posts/15185">
+<meta property="og:site_name" content="GoldenMagicBox">
+<meta property="og:description" content="本教程介绍如何在Google Colab云端免费部署GitHub项目MoneyPrinterTurbo来一键生成短视频">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.youtube.com/vi/V-AFz4zh9p8/hqdefault.jpg">
+<meta property="article:published_time" content="2025-10-22T09:42:18.000Z">
+<meta property="article:modified_time" content="2026-07-30T06:14:44.063Z">
+<meta property="article:author" content="金融老民工">
+<meta property="article:tag" content="AI工具">
+<meta property="article:tag" content="GitHub项目">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.youtube.com/vi/V-AFz4zh9p8/hqdefault.jpg">
+<meta property="fb:app_id" content="1397748364585761"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "用Google Colab免费部署MoneyPrinterTurbo，一键生成短视频！",
+  "url": "http://jinmohe.com/posts/15185",
+  "image": "https://img.youtube.com/vi/V-AFz4zh9p8/hqdefault.jpg",
+  "datePublished": "2025-10-22T09:42:18.000Z",
+  "dateModified": "2026-07-30T06:14:44.063Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "金融老民工",
+      "url": "http://jinmohe.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="http://jinmohe.com/posts/15185"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//www.clarity.ms"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: '',
+  enable_page_level_ads: 'true'
+});</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-25GYY7D742"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-25GYY7D742')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-25GYY7D742', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "qmhfv3vgur");
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: 金融老民工","link":"链接: ","source":"来源: GoldenMagicBox","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '用Google Colab免费部署MoneyPrinterTurbo，一键生成短视频！',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7861705837127742" crossorigin="anonymous"></script><script src="https://analytics.ahrefs.com/analytics.js" data-key="SFsrgw4YGBm/6k2xm2jqdg" async></script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.2"></head><body><div class="bg-animation" id="web_bg" style="background-color: #5caf27;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/loading.svg" data-lazy-src="/img/avatar.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/videos/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/parody/"><i class="fa-fw fas fa-coffee"></i><span> 娱乐</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/coverdefault.webp);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/loading.svg" data-lazy-src="/img/logo.webp" alt="Logo"><span class="site-name">GoldenMagicBox</span></a><a class="nav-page-title" href="/"><span class="site-name">用Google Colab免费部署MoneyPrinterTurbo，一键生成短视频！</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/videos/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/parody/"><i class="fa-fw fas fa-coffee"></i><span> 娱乐</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">用Google Colab免费部署MoneyPrinterTurbo，一键生成短视频！</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2025-10-22T09:42:18.000Z" title="发表于 2025-10-22 17:42:18">2025-10-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%A7%A3%E9%94%81%E5%B0%8F%E9%AD%94%E7%9B%92/">解锁小魔盒</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">806</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div class="video-container">
+  <iframe
+    src="https://www.youtube.com/embed/V-AFz4zh9p8"
+    title="YouTube video"
+    frameborder="0"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<hr>
+<h2 id="云端一键生成短视频教程-MoneyPrinterTurbo"><a href="#云端一键生成短视频教程-MoneyPrinterTurbo" class="headerlink" title="云端一键生成短视频教程 (MoneyPrinterTurbo)"></a>云端一键生成短视频教程 (MoneyPrinterTurbo)</h2><p>本教程将介绍如何在云端部署MoneyPrinterTurbo，实现一键生成短视频，无需高性能电脑或显卡。</p>
+<p><strong>项目优势：</strong></p>
+<ul>
+<li>无需高性能硬件，只要浏览器能上网即可运行。</li>
+<li>操作简便，直接通过网页界面进行文字输入和视频生成。</li>
+<li>自动处理视频下载、拼接、字幕、音轨等操作。</li>
+</ul>
+<p><strong>准备工作：</strong></p>
+<ol>
+<li><p><strong>系统账号（建议用Google账号免费注册）</strong></p>
+<ul>
+<li><strong>Google Colaboratory (Colab)</strong>：Google提供的在线云端笔记本环境，可直接运行Python代码，调用GPU等资源。</li>
+<li><strong>Ngrok</strong>：用于将云端服务临时映射到公网，生成一个可访问的URL。</li>
+</ul>
+</li>
+<li><p><strong>素材来源账号</strong></p>
+<ul>
+<li><strong>Pexels &#x2F; Pixabay</strong>：用于获取短视频所需的图片、音频、视频素材。</li>
+</ul>
+</li>
+<li><p><strong>AI大模型API Key</strong></p>
+<ul>
+<li>根据视频中推荐的Moonshot、Pexels、Pixabay等平台获取API Key。</li>
+</ul>
+</li>
+</ol>
+<h3 id="1-注册并登录GitHub账号"><a href="#1-注册并登录GitHub账号" class="headerlink" title="1. 注册并登录GitHub账号"></a>1. 注册并登录GitHub账号</h3><ol>
+<li>访问GitHub官网：<code>github.com</code></li>
+<li>点击“Sign up”注册新账号，或直接使用Google账号登录。</li>
+<li>登录成功后，点击左上角的三条横线，选择“Explore”来搜索项目。</li>
+</ol>
+<h3 id="2-查找并打开MoneyPrinterTurbo项目"><a href="#2-查找并打开MoneyPrinterTurbo项目" class="headerlink" title="2. 查找并打开MoneyPrinterTurbo项目"></a>2. 查找并打开MoneyPrinterTurbo项目</h3><ol>
+<li>在GitHub的搜索栏中输入“MoneyPrinterTurbo”并回车。</li>
+<li>在搜索结果中，找到星标数量最多的“MoneyPrinterTurbo”项目并点击进入。</li>
+<li>在项目页面中，找到“快速开始”部分，点击“Open in Colab”按钮。这将跳转到一个新的Colab页面。</li>
+</ol>
+<h3 id="3-配置Ngrok远程访问"><a href="#3-配置Ngrok远程访问" class="headerlink" title="3. 配置Ngrok远程访问"></a>3. 配置Ngrok远程访问</h3><ol>
+<li>在Colab页面中，找到“Configure ngrok for Remote Access”单元格。</li>
+<li>您需要从Ngrok官网获取<code>authtoken</code>。访问<code>ngrok.com</code>并注册&#x2F;登录，在左侧找到<code>Your Authtoken</code>，复制<code>authtoken</code>。</li>
+<li>将Colab单元格中<code>YOUR_NGROK_AUTH_TOKEN</code>替换为实际的<code>authtoken</code>。</li>
+</ol>
+<h3 id="4-运行Colab项目"><a href="#4-运行Colab项目" class="headerlink" title="4. 运行Colab项目"></a>4. 运行Colab项目</h3><ol>
+<li>在Colab页面中，点击顶部菜单栏的“全部运行”按钮，开始执行所有单元格。</li>
+<li>程序会下载项目代码、安装依赖、配置Ngrok。</li>
+<li>运行成功后，Colab页面底部会生成一个公网IP地址。点击该链接，即可在新的浏览器标签页中打开MoneyPrinterTurbo的Web界面。</li>
+</ol>
+<h3 id="5-MoneyPrinterTurbo-Web界面配置"><a href="#5-MoneyPrinterTurbo-Web界面配置" class="headerlink" title="5. MoneyPrinterTurbo Web界面配置"></a>5. MoneyPrinterTurbo Web界面配置</h3><ol>
+<li>在MoneyPrinterTurbo的Web界面中，点击右上角将语言切换为“简体中文”。</li>
+<li><strong>大模型设置：</strong><ul>
+<li>在“大模型设置”区域，选择大模型。</li>
+<li>填写大模型的API Key。</li>
+</ul>
+</li>
+<li><strong>视频源设置：</strong><ul>
+<li>在“视频源设置”区域，选择“Pexels”作为视频源。</li>
+<li>填写从Pexels平台获取的API Key。</li>
+</ul>
+</li>
+<li><strong>文本设置：</strong><ul>
+<li>在“文本设置”区域，输入一个视频主题（例如：比特币影响世界）。</li>
+</ul>
+</li>
+<li><strong>音源设置：</strong><ul>
+<li>在“音源设置”区域，选择音源。</li>
+</ul>
+</li>
+<li><strong>生成视频：</strong><ul>
+<li>点击“生成视频”按钮。程序将开始下载素材、处理视频、合成字幕和音轨。</li>
+<li>请耐心等待，直到视频生成完成。完成后，可以下载生成的MP4文件。</li>
+</ul>
+</li>
+</ol>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li><strong>API Key安全：</strong> 永远不要将API Key分享给他人或直接暴露在浏览器前端代码中。</li>
+<li><strong>素材版权：</strong> 确保使用的所有图片、音频、视频素材具有合法的商业使用授权。</li>
+<li><strong>效果优化：</strong> 为了达到更好的视频效果，可能需要对视频参数、字幕设置等进行多次调整。</li>
+</ul>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AI%E5%B7%A5%E5%85%B7/">AI工具</a><a class="post-meta__tags" href="/tags/GitHub%E9%A1%B9%E7%9B%AE/">GitHub项目</a></div><div class="post-share"><div class="social-share" data-image="https://img.youtube.com/vi/V-AFz4zh9p8/hqdefault.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related  no-desc" href="/posts/41324" title="RackNerd VPS节点搭建全攻略!"><img class="cover" src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/6eGBFmuU10I/hqdefault.jpg" onerror="onerror=null;src='/img/404.webp'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">RackNerd VPS节点搭建全攻略!</div></div></div></a><a class="pagination-related  no-desc" href="/posts/52686" title="视频下载工具yt-dlp使用教程"><img class="cover" src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/0QyH-iqOqtI/hqdefault.jpg" onerror="onerror=null;src='/img/404.webp'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">视频下载工具yt-dlp使用教程</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related no-desc" href="/posts/54098" title="MoneyPrinterTurbo:一键生成短视频，快速发布Youtube、抖音和小红书!"><img class="cover" src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/rvTS6A2AXi0/hqdefault.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-25</div><div class="info-item-2">MoneyPrinterTurbo:一键生成短视频，快速发布Youtube、抖音和小红书!</div></div></div></a><a class="pagination-related no-desc" href="/posts/51395" title="Windows&amp;Offie激活+Gemini&amp;Copilot工具栏开启+PuTTY登录工具"><img class="cover" src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/AyQydhOuySg/hqdefault.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-24</div><div class="info-item-2">Windows&amp;Offie激活+Gemini&amp;Copilot工具栏开启+PuTTY登录工具</div></div></div></a><a class="pagination-related no-desc" href="/posts/63322" title="零硬件也能玩:Google Colab 云端部署 Index-TTS 语音克隆教程"><img class="cover" src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/XOTWhw391Nw/hqdefault.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-10-31</div><div class="info-item-2">零硬件也能玩:Google Colab 云端部署 Index-TTS 语音克隆教程</div></div></div></a><a class="pagination-related no-desc" href="/posts/41831" title="AI 一键生成中文字幕！繁体&#x2F;简体全搞定（OpenAI-Whisper教程）"><img class="cover" src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/Rw9a2XpC_aI/hqdefault.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-16</div><div class="info-item-2">AI 一键生成中文字幕！繁体&#x2F;简体全搞定（OpenAI-Whisper教程）</div></div></div></a><a class="pagination-related no-desc" href="/posts/40703" title="GPT-SoVITS:只需要5秒钟，完美克隆你的声音"><img class="cover" src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/GaQLb1Cr4TE/hqdefault.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-26</div><div class="info-item-2">GPT-SoVITS:只需要5秒钟，完美克隆你的声音</div></div></div></a><a class="pagination-related no-desc" href="/posts/50249" title="国行安卓及苹果手机下载安装原生TikTok"><img class="cover" src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/-RCJBsjxpFI/hqdefault.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-07</div><div class="info-item-2">国行安卓及苹果手机下载安装原生TikTok</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/loading.svg" data-lazy-src="/img/avatar.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">金融老民工</div><div class="author-info-description">分享网络技术、海外通信、跨境支付、工具软件教程。提供技术指南、海外账号注册技巧与数字生活解决方案。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://www.youtube.com/@LaoMinGong"><i class="fab fa-youtube"></i><span>我的youtube频道</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">好玩儿、开放、深思、包容</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%91%E7%AB%AF%E4%B8%80%E9%94%AE%E7%94%9F%E6%88%90%E7%9F%AD%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B-MoneyPrinterTurbo"><span class="toc-number">1.</span> <span class="toc-text">云端一键生成短视频教程 (MoneyPrinterTurbo)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%B3%A8%E5%86%8C%E5%B9%B6%E7%99%BB%E5%BD%95GitHub%E8%B4%A6%E5%8F%B7"><span class="toc-number">1.1.</span> <span class="toc-text">1. 注册并登录GitHub账号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%9F%A5%E6%89%BE%E5%B9%B6%E6%89%93%E5%BC%80MoneyPrinterTurbo%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.2.</span> <span class="toc-text">2. 查找并打开MoneyPrinterTurbo项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%85%8D%E7%BD%AENgrok%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE"><span class="toc-number">1.3.</span> <span class="toc-text">3. 配置Ngrok远程访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%BF%90%E8%A1%8CColab%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.4.</span> <span class="toc-text">4. 运行Colab项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-MoneyPrinterTurbo-Web%E7%95%8C%E9%9D%A2%E9%85%8D%E7%BD%AE"><span class="toc-number">1.5.</span> <span class="toc-text">5. MoneyPrinterTurbo Web界面配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.6.</span> <span class="toc-text">注意事项</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/35217" title="用 Cloudflare 部署 Cloud Mail：成本、限制与适用场景"><img src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/xABA7VxJXDs/hqdefault.jpg" onerror="this.onerror=null;this.src='/img/404.webp'" alt="用 Cloudflare 部署 Cloud Mail：成本、限制与适用场景"/></a><div class="content"><a class="title" href="/posts/35217" title="用 Cloudflare 部署 Cloud Mail：成本、限制与适用场景">用 Cloudflare 部署 Cloud Mail：成本、限制与适用场景</a><time datetime="2026-07-07T23:18:19.000Z" title="发表于 2026-07-08 07:18:19">2026-07-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/7316" title="美区 PayPal 绑定 Wise 美元账户收款"><img src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/MgStXTb4glI/hqdefault.jpg" onerror="this.onerror=null;this.src='/img/404.webp'" alt="美区 PayPal 绑定 Wise 美元账户收款"/></a><div class="content"><a class="title" href="/posts/7316" title="美区 PayPal 绑定 Wise 美元账户收款">美区 PayPal 绑定 Wise 美元账户收款</a><time datetime="2026-07-07T23:07:20.000Z" title="发表于 2026-07-08 07:07:20">2026-07-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/15519" title="频道视频完整列表索引"><img src="/img/loading.svg" data-lazy-src="/img/cover.webp" onerror="this.onerror=null;this.src='/img/404.webp'" alt="频道视频完整列表索引"/></a><div class="content"><a class="title" href="/posts/15519" title="频道视频完整列表索引">频道视频完整列表索引</a><time datetime="2026-06-30T13:49:48.000Z" title="发表于 2026-06-30 21:49:48">2026-06-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/52263" title="自建 VPS 教程"><img src="/img/loading.svg" data-lazy-src="https://img.didadi.xyz/file/1782806903468_VPS.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="自建 VPS 教程"/></a><div class="content"><a class="title" href="/posts/52263" title="自建 VPS 教程">自建 VPS 教程</a><time datetime="2026-06-29T16:45:58.000Z" title="发表于 2026-06-30 00:45:58">2026-06-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/50887" title="华为手机安装谷歌框架GMS | 安装Google Play谷歌应用商店全教程"><img src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/nZj1pNTwOIk/hqdefault.jpg" onerror="this.onerror=null;this.src='/img/404.webp'" alt="华为手机安装谷歌框架GMS | 安装Google Play谷歌应用商店全教程"/></a><div class="content"><a class="title" href="/posts/50887" title="华为手机安装谷歌框架GMS | 安装Google Play谷歌应用商店全教程">华为手机安装谷歌框架GMS | 安装Google Play谷歌应用商店全教程</a><time datetime="2026-06-28T18:12:02.000Z" title="发表于 2026-06-29 02:12:02">2026-06-29</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/coverdefault.webp);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2020 - 2026 By 金融老民工</span></div><div class="footer_custom_text"><span style="white-space:nowrap;"><i class="fas fa-envelope" style="color:#2CA5E0;margin-right:4px;"></i><a href="mailto:jinmohe2000@gmail.com">Email</a>&nbsp;&nbsp;|&nbsp;&nbsp;<i class="fab fa-telegram-plane" style="color:#2CA5E0;margin-right:4px;"></i><a target="_blank" rel="noopener" href="https://t.me/laomingong">Telegram</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/about/">关于本站</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/privacy/">隐私政策</a></span> 
+</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: true,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      true
+        ? pjax.loadUrl('/404')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

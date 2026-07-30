@@ -1,0 +1,372 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ClawCloud爪云免费VPS注册及3x-ui节点搭建 | GoldenMagicBox</title><meta name="author" content="金融老民工"><meta name="copyright" content="金融老民工"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本教程教你注册ClawCloud爪云的免费VPS及使用3x-ui面板进行代理上网节点的搭建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ClawCloud爪云免费VPS注册及3x-ui节点搭建">
+<meta property="og:url" content="http://jinmohe.com/posts/8280">
+<meta property="og:site_name" content="GoldenMagicBox">
+<meta property="og:description" content="本教程教你注册ClawCloud爪云的免费VPS及使用3x-ui面板进行代理上网节点的搭建">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.youtube.com/vi/MNB6qnahD2k/hqdefault.jpg">
+<meta property="article:published_time" content="2025-05-18T19:38:30.000Z">
+<meta property="article:modified_time" content="2026-07-30T06:26:32.975Z">
+<meta property="article:author" content="金融老民工">
+<meta property="article:tag" content="3x-ui">
+<meta property="article:tag" content="VPS与服务器">
+<meta property="article:tag" content="VPS注册">
+<meta property="article:tag" content="免费VPS">
+<meta property="article:tag" content="节点自建教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.youtube.com/vi/MNB6qnahD2k/hqdefault.jpg">
+<meta property="fb:app_id" content="1397748364585761"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "ClawCloud爪云免费VPS注册及3x-ui节点搭建",
+  "url": "http://jinmohe.com/posts/8280",
+  "image": "https://img.youtube.com/vi/MNB6qnahD2k/hqdefault.jpg",
+  "datePublished": "2025-05-18T19:38:30.000Z",
+  "dateModified": "2026-07-30T06:26:32.975Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "金融老民工",
+      "url": "http://jinmohe.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="http://jinmohe.com/posts/8280"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//www.clarity.ms"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: '',
+  enable_page_level_ads: 'true'
+});</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-25GYY7D742"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-25GYY7D742')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-25GYY7D742', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "qmhfv3vgur");
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: 金融老民工","link":"链接: ","source":"来源: GoldenMagicBox","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ClawCloud爪云免费VPS注册及3x-ui节点搭建',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7861705837127742" crossorigin="anonymous"></script><script src="https://analytics.ahrefs.com/analytics.js" data-key="SFsrgw4YGBm/6k2xm2jqdg" async></script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.2"></head><body><div class="bg-animation" id="web_bg" style="background-color: #5caf27;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/loading.svg" data-lazy-src="/img/avatar.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/videos/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/parody/"><i class="fa-fw fas fa-coffee"></i><span> 娱乐</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/coverdefault.webp);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/loading.svg" data-lazy-src="/img/logo.webp" alt="Logo"><span class="site-name">GoldenMagicBox</span></a><a class="nav-page-title" href="/"><span class="site-name">ClawCloud爪云免费VPS注册及3x-ui节点搭建</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/videos/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/parody/"><i class="fa-fw fas fa-coffee"></i><span> 娱乐</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">ClawCloud爪云免费VPS注册及3x-ui节点搭建</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2025-05-18T19:38:30.000Z" title="发表于 2025-05-19 03:38:30">2025-05-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%BC%80%E7%9C%BC%E7%9C%8B%E4%B8%96%E7%95%8C/">开眼看世界</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div class="video-container">
+  <iframe
+    src="https://www.youtube.com/embed/MNB6qnahD2k"
+    title="YouTube video"
+    frameborder="0"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<hr>
+<h1 id="ClawCloud-免费-VPS-搭建-3X-UI-面板教程"><a href="#ClawCloud-免费-VPS-搭建-3X-UI-面板教程" class="headerlink" title="ClawCloud 免费 VPS 搭建 3X-UI 面板教程"></a>ClawCloud 免费 VPS 搭建 3X-UI 面板教程</h1><h2 id="一、注册-ClawCloud-账号"><a href="#一、注册-ClawCloud-账号" class="headerlink" title="一、注册 ClawCloud 账号"></a>一、注册 ClawCloud 账号</h2><ol>
+<li>访问 ClawCloud 官网：<code>https://claw.cloud</code>。</li>
+<li>点击首页上的“开启免费使用”。</li>
+<li>在跳转的页面，点击 “Get started for free”。</li>
+</ol>
+<h2 id="二、通过-GitHub-授权登录"><a href="#二、通过-GitHub-授权登录" class="headerlink" title="二、通过 GitHub 授权登录"></a>二、通过 GitHub 授权登录</h2><p>ClawCloud 提供首次注册 $5 额度。如果使用注册时长超过180天的 GitHub 账户授权登录，则可以<strong>每月获得 $5 的免费额度</strong>。推荐使用 GitHub 登录以获取持续的免费额度。</p>
+<ol>
+<li>在登录页面，选择 “<strong>GitHub</strong>” 进行授权登录。</li>
+<li>(可选步骤) 检查 GitHub 账户注册时长：<ul>
+<li>访问 <code>https://api.github.com/users/YOUR_GITHUB_USERNAME</code> (将 <code>YOUR_GITHUB_USERNAME</code> 替换为您的 GitHub 用户名)。</li>
+<li>在返回的 JSON 数据中，查看 <code>created_at</code> 字段的值，确认 GitHub 账户注册时间已超过180天。</li>
+</ul>
+</li>
+<li>输入 GitHub 用户名和密码，并授权 ClawCloud Run 访问。</li>
+</ol>
+<h2 id="三、创建-Workspace"><a href="#三、创建-Workspace" class="headerlink" title="三、创建 Workspace"></a>三、创建 Workspace</h2><ol>
+<li>登录成功后，进入 Workspace 创建页面。</li>
+<li><strong>Choose a region</strong> (选择区域)：根据需求选择一个区域，可以根据实际情况选择。</li>
+<li><strong>Create Workspace</strong> (Workspace 名称)：输入一个自定义的名称。</li>
+<li>点击 “Start Deploying”。</li>
+<li>会出现一个快速开始向导，可以点击 “or skip to dashboard” 跳过。</li>
+</ol>
+<h2 id="四、部署-3X-UI-应用"><a href="#四、部署-3X-UI-应用" class="headerlink" title="四、部署 3X-UI 应用"></a>四、部署 3X-UI 应用</h2><ol>
+<li><p>在主仪表盘，点击左侧导航栏中的 “App Launchpad”（火箭图标）。</p>
+</li>
+<li><p>在 Applications 页面，点击右上角的 “Create App”。</p>
+</li>
+<li><p>进入应用部署配置页面：</p>
+<ul>
+<li><strong>Application Name</strong> (应用名称)：自定义一个名称。<strong>注意：此名称必须是小写字母、数字和连字符 <code>-</code> 的组合，且以字母或数字开头和结尾，不能包含大写字母。</strong></li>
+<li><strong>Image</strong> (镜像) &gt; <strong>Image Name</strong> (镜像名称)：<ul>
+<li>部署 3X-UI。其官方或社群维护的 Docker 镜像地址通常可以在 GitHub 仓库中找到。</li>
+<li>最终使用的镜像是：<code>3x-ui:latest</code></li>
+<li><strong>重要</strong>：务必在镜像名称后添加标签，如 <code>:latest</code> 或特定的版本号 (例如 <code>:v2.5.8</code>)，否则可能导致部署失败。</li>
+</ul>
+</li>
+<li><strong>Usage</strong> (资源配置)：<ul>
+<li><strong>CPU</strong>：根据左侧的每日预估费用调整，确保不超过每月 $5 的免费额度，可以选择 ‘1核’ 。</li>
+<li><strong>Memory</strong> (内存)：同样根据预估费用调整，建议调整为 <code>512MB</code>。</li>
+<li><strong>注意</strong>：左上角会显示 <strong>Estimated Cost (Day)</strong>（每日预估费用），请确保这个费用乘以30天后在免费额度（ $5）之内。</li>
+</ul>
+</li>
+<li><strong>Network</strong> (网络)：<ul>
+<li>默认会有一个端口（通常是 80）用于 Web 访问，保持开启 (Public Access 开关打开)。ClawCloud 会为此端口分配一个公共 HTTPS 地址。</li>
+<li>点击 “+ Add Port”，为 3X-UI 的代理服务添加一个新的端口：<ul>
+<li><strong>Container Port</strong> (容器端口)：输入 <code>2053</code> (3X-ui后端管理端口)。</li>
+<li><strong>Public Access</strong>：保持开启状态，以便外部访问。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Advanced Configuration</strong> (高级配置) &gt; <strong>Local Storage</strong> (本地存储)：<ul>
+<li>点击 “+ Add”。</li>
+<li><strong>Capacity</strong> (容量)：默认 1G 即可。</li>
+<li><strong>Mount Path</strong> (挂载路径)：输入 <code>/data</code> (这是 3X-UI 存储配置和数据库的常用路径，以确保数据持久化)。</li>
+<li>点击 “Confirm”。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>完成所有配置后，点击页面右上角的 “Deploy Application”。</p>
+</li>
+<li><p>如果应用名称不符合规范（如包含大写字母），系统会报错。请根据提示修改应用名称，然后重新点击部署。</p>
+</li>
+<li><p>等待应用部署完成。应用状态会从 “Creating” 变为 “Running”，下方的 Pod List 中的状态会变为 “Active”。网络部分的 Public Address 状态会从 “Pending” 变为可用的链接。这可能需要几分钟时间。</p>
+<ul>
+<li><strong>注意</strong>：如果遇到特定区域（如新加坡）部署后长时间无法访问或 Public Address 持续 Pending 的情况，可以尝试删除该应用，然后在左上角的 Workspace 设置中切换到其他区域（如 <code>Japan</code>），再重新创建和部署应用。</li>
+</ul>
+</li>
+</ol>
+<h2 id="五、访问和配置-3X-UI-面板"><a href="#五、访问和配置-3X-UI-面板" class="headerlink" title="五、访问和配置 3X-UI 面板"></a>五、访问和配置 3X-UI 面板</h2><ol>
+<li>应用部署成功并状态变为 “Running” 后，在应用的 “Network” (网络) 部分，找到为 Web 访问设置的端口对应的 “Public Address” 链接 (通常是一个 <code>https://*.clawcloudrun.com</code> 格式的域名)，点击该链接。</li>
+<li>浏览器将打开 3X-UI 的登录面板。</li>
+<li>输入默认的用户名和密码：<ul>
+<li>用户名：<code>admin</code></li>
+<li>密码：<code>admin</code></li>
+</ul>
+</li>
+<li>点击“登录”。</li>
+<li><strong>重要安全步骤：修改默认凭证</strong><ul>
+<li>登录后，请立即修改默认的管理员用户名和密码。</li>
+<li>在左侧菜单选择 “面板设置”。</li>
+<li>切换到 “安全设定” 选项卡。</li>
+<li>设置新的用户名和密码，然后点击“确定”。面板会自动重启以应用更改。</li>
+<li>使用新凭证重新登录。</li>
+</ul>
+</li>
+</ol>
+<h2 id="六、在-3X-UI-中添加入站代理"><a href="#六、在-3X-UI-中添加入站代理" class="headerlink" title="六、在 3X-UI 中添加入站代理"></a>六、在 3X-UI 中添加入站代理</h2><ol>
+<li>登录 3X-UI 面板后，点击左侧菜单的 “入站列表”。</li>
+<li>点击 “+ 添加入站” 按钮。</li>
+<li>配置入站信息：<ul>
+<li><strong>备注</strong>：自定义一个名称，例如 <code>myvps-vless-ws</code>。</li>
+<li><strong>协议 (protocol)</strong>：选择需要的协议，例如 <code>vless</code>。</li>
+<li><strong>监听IP</strong>：留空即可。</li>
+<li><strong>端口 (port)</strong>：<strong>输入 <code>80</code></strong>。这是因为 ClawCloud 已经为我们的容器 80 端口提供了外部的 HTTPS (443) 访问。我们将通过 WebSocket (ws) 复用这个端口。</li>
+<li><strong>用户ID (uuid)</strong>：系统会自动生成，可以保持默认，也可以点击旁边的刷新按钮生成新的。</li>
+<li><strong>传输 (network)</strong> &#x2F; <strong>传输协议</strong>：选择 <code>ws</code> (WebSocket)。</li>
+<li><strong>路径 (path)</strong>：自定义一个 WebSocket 路径，例如 <code>/</code> 加上之前复制的用户ID的一部分，或一个随机字符串，如 <code>/your-custom-path</code>。确保以 <code>/</code> 开头。</li>
+<li><strong>TLS</strong>：<strong>开启</strong>。</li>
+</ul>
+</li>
+<li>点击“添加”按钮保存入站配置。</li>
+</ol>
+<h2 id="七、客户端配置与连接"><a href="#七、客户端配置与连接" class="headerlink" title="七、客户端配置与连接"></a>七、客户端配置与连接</h2><ol>
+<li>在 3X-UI 面板的“入站列表”中，找到刚创建的入站节点。</li>
+<li>点击操作栏的“二维码”图标或“复制”图标，获取节点的配置信息（如 VLESS 链接）。</li>
+<li>在代理客户端（如 V2RayN, Clash, Shadowrocket 等）中导入或手动配置节点：<ul>
+<li><strong>地址 (Address&#x2F;Server)</strong>：填写 ClawCloud 分配的 <strong>80 端口</strong>的 Public Address (去掉 <code>http://</code> 或 <code>https://</code> 部分，仅域名，例如 <code>myvps.ap-northeast-1.clawcloudrun.com</code>)。</li>
+<li><strong>端口 (Port)</strong>：填写 <code>443</code>。</li>
+<li><strong>用户ID (UUID)</strong>：与 3X-UI 中设置的一致。</li>
+<li><strong>额外ID (AlterID)</strong>：通常为 <code>0</code> (如果协议需要)。</li>
+<li><strong>加密方式 (Encryption)</strong>：通常为 <code>none</code> (对于 VLESS)。</li>
+<li><strong>传输协议 (Network&#x2F;Transport)</strong>：选择 <code>ws</code> (WebSocket)。</li>
+<li><strong>伪装类型 (Type)</strong>：<code>none</code>。</li>
+<li><strong>伪装域名 (Host&#x2F;SNI&#x2F;ServerName)</strong>：填写与<strong>地址</strong>相同的域名,也可以不填写。</li>
+<li><strong>路径 (Path)</strong>：与在 3X-UI 中为该入站设置的 WebSocket 路径一致。</li>
+<li><strong>底层传输安全 (TLS&#x2F;Security)</strong>：选择 <code>tls</code>。</li>
+<li><strong>跳过证书验证 (allowInsecure&#x2F;skip-cert-verify)</strong>：开启（设置为 <code>true</code> 或勾选）。</li>
+</ul>
+</li>
+<li>保存客户端配置。</li>
+<li>启动代理，并测试是否可以正常访问国际网络（如 Google, YouTube）。可以在客户端中进行延迟测试，确认连接成功。</li>
+</ol>
+<h2 id="八、总结"><a href="#八、总结" class="headerlink" title="八、总结"></a>八、总结</h2><p>通过以上步骤，在 ClawCloud 的免费 VPS 上搭建了 3X-UI 面板，并配置了可用的代理节点。请注意，免费额度有限，请合理使用资源。</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/VPS%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/">VPS与服务器</a><a class="post-meta__tags" href="/tags/VPS%E6%B3%A8%E5%86%8C/">VPS注册</a><a class="post-meta__tags" href="/tags/%E5%85%8D%E8%B4%B9VPS/">免费VPS</a><a class="post-meta__tags" href="/tags/%E8%8A%82%E7%82%B9%E8%87%AA%E5%BB%BA%E6%95%99%E7%A8%8B/">节点自建教程</a><a class="post-meta__tags" href="/tags/3x-ui/">3x-ui</a></div><div class="post-share"><div class="social-share" data-image="https://img.youtube.com/vi/MNB6qnahD2k/hqdefault.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related  no-desc" href="/posts/40703" title="GPT-SoVITS:只需要5秒钟，完美克隆你的声音"><img class="cover" src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/GaQLb1Cr4TE/hqdefault.jpg" onerror="onerror=null;src='/img/404.webp'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">GPT-SoVITS:只需要5秒钟，完美克隆你的声音</div></div></div></a><a class="pagination-related  no-desc" href="/posts/42996" title="手把教你注册海外免费esim流量卡+机房节点登录Talkatone的模块配置"><img class="cover" src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/TmCivlClvXI/hqdefault.jpg" onerror="onerror=null;src='/img/404.webp'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">手把教你注册海外免费esim流量卡+机房节点登录Talkatone的模块配置</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related no-desc" href="/posts/29034" title="免费谷歌云注册及VPS搭建"><img class="cover" src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/EWlxnt7PrYE/hqdefault.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-16</div><div class="info-item-2">免费谷歌云注册及VPS搭建</div></div></div></a><a class="pagination-related no-desc" href="/posts/42995" title="谷歌云自建上网节点教程"><img class="cover" src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/oAEnILqeaC0/hqdefault.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-10-15</div><div class="info-item-2">谷歌云自建上网节点教程</div></div></div></a><a class="pagination-related no-desc" href="/posts/41324" title="RackNerd VPS节点搭建全攻略!"><img class="cover" src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/6eGBFmuU10I/hqdefault.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-10-23</div><div class="info-item-2">RackNerd VPS节点搭建全攻略!</div></div></div></a><a class="pagination-related no-desc" href="/posts/59604" title="2026最新免费亚马逊VPS注册教程"><img class="cover" src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/o11LAtpy994/hqdefault.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-18</div><div class="info-item-2">2026最新免费亚马逊VPS注册教程</div></div></div></a><a class="pagination-related no-desc" href="/posts/30397" title="使用AmazonAWS免费VPS搭建个人专属上网节点"><img class="cover" src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/Xwo57mHkCLc/hqdefault.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-01</div><div class="info-item-2">使用AmazonAWS免费VPS搭建个人专属上网节点</div></div></div></a><a class="pagination-related no-desc" href="/posts/63924" title="3x-ui| s-ui 代理节点搭建组合流程全教程"><img class="cover" src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/_eLH3uXceiw/hqdefault.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-03</div><div class="info-item-2">3x-ui| s-ui 代理节点搭建组合流程全教程</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/loading.svg" data-lazy-src="/img/avatar.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">金融老民工</div><div class="author-info-description">分享网络技术、海外通信、跨境支付、工具软件教程。提供技术指南、海外账号注册技巧与数字生活解决方案。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://www.youtube.com/@LaoMinGong"><i class="fab fa-youtube"></i><span>我的youtube频道</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">好玩儿、开放、深思、包容</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ClawCloud-%E5%85%8D%E8%B4%B9-VPS-%E6%90%AD%E5%BB%BA-3X-UI-%E9%9D%A2%E6%9D%BF%E6%95%99%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">ClawCloud 免费 VPS 搭建 3X-UI 面板教程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%B3%A8%E5%86%8C-ClawCloud-%E8%B4%A6%E5%8F%B7"><span class="toc-number">1.1.</span> <span class="toc-text">一、注册 ClawCloud 账号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E9%80%9A%E8%BF%87-GitHub-%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95"><span class="toc-number">1.2.</span> <span class="toc-text">二、通过 GitHub 授权登录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%88%9B%E5%BB%BA-Workspace"><span class="toc-number">1.3.</span> <span class="toc-text">三、创建 Workspace</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E9%83%A8%E7%BD%B2-3X-UI-%E5%BA%94%E7%94%A8"><span class="toc-number">1.4.</span> <span class="toc-text">四、部署 3X-UI 应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E8%AE%BF%E9%97%AE%E5%92%8C%E9%85%8D%E7%BD%AE-3X-UI-%E9%9D%A2%E6%9D%BF"><span class="toc-number">1.5.</span> <span class="toc-text">五、访问和配置 3X-UI 面板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%9C%A8-3X-UI-%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%85%A5%E7%AB%99%E4%BB%A3%E7%90%86"><span class="toc-number">1.6.</span> <span class="toc-text">六、在 3X-UI 中添加入站代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%BF%9E%E6%8E%A5"><span class="toc-number">1.7.</span> <span class="toc-text">七、客户端配置与连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E6%80%BB%E7%BB%93"><span class="toc-number">1.8.</span> <span class="toc-text">八、总结</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/35217" title="用 Cloudflare 部署 Cloud Mail：成本、限制与适用场景"><img src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/xABA7VxJXDs/hqdefault.jpg" onerror="this.onerror=null;this.src='/img/404.webp'" alt="用 Cloudflare 部署 Cloud Mail：成本、限制与适用场景"/></a><div class="content"><a class="title" href="/posts/35217" title="用 Cloudflare 部署 Cloud Mail：成本、限制与适用场景">用 Cloudflare 部署 Cloud Mail：成本、限制与适用场景</a><time datetime="2026-07-07T23:18:19.000Z" title="发表于 2026-07-08 07:18:19">2026-07-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/7316" title="美区 PayPal 绑定 Wise 美元账户收款"><img src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/MgStXTb4glI/hqdefault.jpg" onerror="this.onerror=null;this.src='/img/404.webp'" alt="美区 PayPal 绑定 Wise 美元账户收款"/></a><div class="content"><a class="title" href="/posts/7316" title="美区 PayPal 绑定 Wise 美元账户收款">美区 PayPal 绑定 Wise 美元账户收款</a><time datetime="2026-07-07T23:07:20.000Z" title="发表于 2026-07-08 07:07:20">2026-07-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/15519" title="频道视频完整列表索引"><img src="/img/loading.svg" data-lazy-src="/img/cover.webp" onerror="this.onerror=null;this.src='/img/404.webp'" alt="频道视频完整列表索引"/></a><div class="content"><a class="title" href="/posts/15519" title="频道视频完整列表索引">频道视频完整列表索引</a><time datetime="2026-06-30T13:49:48.000Z" title="发表于 2026-06-30 21:49:48">2026-06-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/52263" title="自建 VPS 教程"><img src="/img/loading.svg" data-lazy-src="https://img.didadi.xyz/file/1782806903468_VPS.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="自建 VPS 教程"/></a><div class="content"><a class="title" href="/posts/52263" title="自建 VPS 教程">自建 VPS 教程</a><time datetime="2026-06-29T16:45:58.000Z" title="发表于 2026-06-30 00:45:58">2026-06-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/50887" title="华为手机安装谷歌框架GMS | 安装Google Play谷歌应用商店全教程"><img src="/img/loading.svg" data-lazy-src="https://img.youtube.com/vi/nZj1pNTwOIk/hqdefault.jpg" onerror="this.onerror=null;this.src='/img/404.webp'" alt="华为手机安装谷歌框架GMS | 安装Google Play谷歌应用商店全教程"/></a><div class="content"><a class="title" href="/posts/50887" title="华为手机安装谷歌框架GMS | 安装Google Play谷歌应用商店全教程">华为手机安装谷歌框架GMS | 安装Google Play谷歌应用商店全教程</a><time datetime="2026-06-28T18:12:02.000Z" title="发表于 2026-06-29 02:12:02">2026-06-29</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/coverdefault.webp);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2020 - 2026 By 金融老民工</span></div><div class="footer_custom_text"><span style="white-space:nowrap;"><i class="fas fa-envelope" style="color:#2CA5E0;margin-right:4px;"></i><a href="mailto:jinmohe2000@gmail.com">Email</a>&nbsp;&nbsp;|&nbsp;&nbsp;<i class="fab fa-telegram-plane" style="color:#2CA5E0;margin-right:4px;"></i><a target="_blank" rel="noopener" href="https://t.me/laomingong">Telegram</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/about/">关于本站</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/privacy/">隐私政策</a></span> 
+</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: true,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      true
+        ? pjax.loadUrl('/404')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
