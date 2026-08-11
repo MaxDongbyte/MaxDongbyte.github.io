@@ -8,7 +8,7 @@
       <link href="/posts/35217.html"/>
       <url>/posts/35217.html</url>
       
-        <content type="html"><![CDATA[<div class="video-container">  <iframe    src="https://www.youtube.com/embed/xABA7VxJXDs"    title="YouTube video"    frameborder="0"    allowfullscreen>  </iframe></div><hr><h1 id="1-背景与原理"><a href="#1-背景与原理" class="headerlink" title="1. 背景与原理"></a>1. 背景与原理</h1><blockquote><p>更新说明（2026-07-16）：本文所说的“免费”仅指在 Cloudflare 当前免费额度内可能不产生账单，不代表无限容量、永久免费或零维护成本。正式使用前请核对项目许可证、Cloudflare 最新定价以及邮件服务条款。</p></blockquote><p>传统邮箱系统（如 Gmail、Outlook）虽然稳定，但存在以下限制：</p><ul><li>免费版空间有限  </li><li>自定义域名邮箱需要付费  </li><li>邮件存储受限  </li><li>隐私依赖第三方平台</li></ul><p><a href="https://github.com/maillab/cloud-mail">Cloud-Mail</a> 是一个开源项目，利用 <strong>Cloudflare Workers + Pages + KV + D1 + Resend</strong> 等免费资源，实现：</p><ul><li>自建邮箱系统  </li><li>自定义域名邮箱  </li><li>可按项目设计使用 KV、D1 或 R2 存储，但容量和请求数受套餐额度限制  </li><li>零成本部署  </li><li>可以自行管理应用配置与部分邮件数据，但底层基础设施仍由云服务商提供</li></ul><p>原理非常简单：</p><blockquote><p><strong>Cloudflare Workers 负责邮件路由与 API，KV&#x2F;D1&#x2F;R2 负责存储，<a href="https://resend.com/">Resend</a> 负责邮件发送。</strong></p></blockquote><p>你只需要一个 <a href="https://cloudflare.com/">Cloudflare</a> 账号 + <a href="https://github.com/">GitHub</a> 账号，就能搭建属于自己的邮箱系统。</p><hr><h1 id="2-适用场景"><a href="#2-适用场景" class="headerlink" title="2. 适用场景"></a>2. 适用场景</h1><p>以下用户最适合使用 Cloud‑Mail：</p><h3 id="✔-想拥有自定义域名邮箱"><a href="#✔-想拥有自定义域名邮箱" class="headerlink" title="✔ 想拥有自定义域名邮箱"></a>✔ 想拥有自定义域名邮箱</h3><p>如：  </p><ul><li><a href="mailto:&#97;&#100;&#x6d;&#105;&#110;&#x40;&#121;&#111;&#x75;&#x72;&#100;&#111;&#x6d;&#x61;&#105;&#110;&#46;&#x63;&#x6f;&#109;">admin@yourdomain.com</a>  </li><li><a href="mailto:&#99;&#111;&#x6e;&#x74;&#x61;&#x63;&#x74;&#x40;&#121;&#111;&#117;&#x72;&#100;&#x6f;&#109;&#x61;&#105;&#110;&#46;&#x63;&#111;&#109;">contact@yourdomain.com</a></li></ul><h3 id="✔-想学习自定义域名收信与邮件路由"><a href="#✔-想学习自定义域名收信与邮件路由" class="headerlink" title="✔ 想学习自定义域名收信与邮件路由"></a>✔ 想学习自定义域名收信与邮件路由</h3><p>不受 Gmail &#x2F; Outlook 限制。</p><h3 id="✔-想自建隐私邮箱"><a href="#✔-想自建隐私邮箱" class="headerlink" title="✔ 想自建隐私邮箱"></a>✔ 想自建隐私邮箱</h3><p>邮件不经过第三方平台。</p><h3 id="✔-想零成本搭建邮箱系统"><a href="#✔-想零成本搭建邮箱系统" class="headerlink" title="✔ 想零成本搭建邮箱系统"></a>✔ 想零成本搭建邮箱系统</h3><p>Cloudflare 免费额度足够个人使用。</p><h3 id="✔-想学习-Cloudflare-Workers-Pages"><a href="#✔-想学习-Cloudflare-Workers-Pages" class="headerlink" title="✔ 想学习 Cloudflare Workers &#x2F; Pages"></a>✔ 想学习 Cloudflare Workers &#x2F; Pages</h3><p>Cloud‑Mail 是非常好的入门项目。</p><hr><h1 id="3-风险与限制"><a href="#3-风险与限制" class="headerlink" title="3. 风险与限制"></a>3. 风险与限制</h1><h3 id="❗-1-Cloudflare-免费额度有限"><a href="#❗-1-Cloudflare-免费额度有限" class="headerlink" title="❗ 1. Cloudflare 免费额度有限"></a>❗ 1. Cloudflare 免费额度有限</h3><p>Workers、KV、D1 都有免费限制，极端高频使用可能触发限流或者产生费用。</p><h3 id="❗-2-Resend-免费额度有限"><a href="#❗-2-Resend-免费额度有限" class="headerlink" title="❗ 2. Resend 免费额度有限"></a>❗ 2. <a href="https://resend.com/">Resend</a> 免费额度有限</h3><p>邮件发送量过大可能需要付费。</p><h3 id="❗-3-邮件系统需要维护"><a href="#❗-3-邮件系统需要维护" class="headerlink" title="❗ 3. 邮件系统需要维护"></a>❗ 3. 邮件系统需要维护</h3><p>如：  </p><ul><li>API 变更  </li><li>Workers 更新  </li><li>Resend 签名验证</li></ul><h3 id="❗-4-不适合企业级大规模邮件"><a href="#❗-4-不适合企业级大规模邮件" class="headerlink" title="❗ 4. 不适合企业级大规模邮件"></a>❗ 4. 不适合企业级大规模邮件</h3><p>Cloud‑Mail 更适合个人或小团队。</p><h3 id="❗-5-邮件送达率依赖-Resend"><a href="#❗-5-邮件送达率依赖-Resend" class="headerlink" title="❗ 5. 邮件送达率依赖 Resend"></a>❗ 5. 邮件送达率依赖 <a href="https://resend.com/">Resend</a></h3><p>如果域名配置不当，可能进入垃圾邮件。</p><h3 id="❗-6-自建邮箱系统需要一定技术基础"><a href="#❗-6-自建邮箱系统需要一定技术基础" class="headerlink" title="❗ 6. 自建邮箱系统需要一定技术基础"></a>❗ 6. 自建邮箱系统需要一定技术基础</h3><p>需要理解 Cloudflare、GitHub、API、KV、D1 等概念。</p><hr><h1 id="4-完整步骤"><a href="#4-完整步骤" class="headerlink" title="4. 完整步骤"></a>4. 完整步骤</h1><p>以下步骤适配 2026 年最新 Cloud‑Mail 部署流程。</p><hr><h2 id="4-1-注册-Cloudflare-与-GitHub"><a href="#4-1-注册-Cloudflare-与-GitHub" class="headerlink" title="4.1 注册 Cloudflare 与 GitHub"></a>4.1 注册 Cloudflare 与 GitHub</h2><ul><li>注册 Cloudflare：<a href="https://cloudflare.com/">https://cloudflare.com</a>  </li><li>注册 GitHub：<a href="https://github.com/">https://github.com</a></li></ul><hr><h2 id="4-2-克隆-Cloud‑Mail-项目到自己的仓库"><a href="#4-2-克隆-Cloud‑Mail-项目到自己的仓库" class="headerlink" title="4.2 克隆 Cloud‑Mail 项目到自己的仓库"></a>4.2 克隆 Cloud‑Mail 项目到自己的仓库</h2><p>登录 GitHub → 打开项目：</p><blockquote><p><a href="https://github.com/maillab/cloud-mail">https://github.com/maillab/cloud-mail</a></p></blockquote><p>点击 <strong>Fork</strong> 克隆到自己的仓库。</p><hr><h2 id="4-3-在-Cloudflare-中部署-Workers"><a href="#4-3-在-Cloudflare-中部署-Workers" class="headerlink" title="4.3 在 Cloudflare 中部署 Workers"></a>4.3 在 Cloudflare 中部署 Workers</h2><h3 id="✔-创建-Worker"><a href="#✔-创建-Worker" class="headerlink" title="✔ 创建 Worker"></a>✔ 创建 Worker</h3><p><img src="https://img.didadi.xyz/file/1782783764777_%E5%88%9B%E5%BB%BAworker.png" alt="创建worker.png"></p><hr><h3 id="✔-导入-GitHub-项目"><a href="#✔-导入-GitHub-项目" class="headerlink" title="✔ 导入 GitHub 项目"></a>✔ 导入 GitHub 项目</h3><p><img src="https://img.didadi.xyz/file/1782783792508_%E5%AF%BC%E5%85%A5github%E9%A1%B9%E7%9B%AE.png" alt="导入github项目.png"></p><p>⚠️ <strong>注意：部署路径不要改变</strong></p><p><img src="https://img.didadi.xyz/file/1782783815283_%E9%83%A8%E7%BD%B2%E8%B7%AF%E5%BE%84.png" alt="部署路径.png"></p><hr><h3 id="✔-添加变量与密钥"><a href="#✔-添加变量与密钥" class="headerlink" title="✔ 添加变量与密钥"></a>✔ 添加变量与密钥</h3><p><img src="https://img.didadi.xyz/file/1782783838352_%E5%8F%98%E9%87%8F%E4%B8%8E%E5%AF%86%E9%92%A5%E8%AE%BE%E7%BD%AE.png" alt="变量与密钥设置.png"></p><hr><h3 id="✔-添加并绑定-KV-与-D1-数据库"><a href="#✔-添加并绑定-KV-与-D1-数据库" class="headerlink" title="✔ 添加并绑定 KV 与 D1 数据库"></a>✔ 添加并绑定 KV 与 D1 数据库</h3><p><img src="https://img.didadi.xyz/file/1782783848885_%E7%BB%91%E5%AE%9A%E4%BD%8D%E7%BD%AE.png" alt="绑定位置.png"></p><p><img src="https://img.didadi.xyz/file/1782783873377_%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%91%E5%AE%9A.png" alt="数据库绑定.png"></p><hr><h3 id="✔-初始化项目数据库"><a href="#✔-初始化项目数据库" class="headerlink" title="✔ 初始化项目数据库"></a>✔ 初始化项目数据库</h3><p>浏览器输入：<code>https://你的worker域/api/init/你的jwt_secret</code></p><p>将：</p><ul><li><code>你的worker域</code> 替换为你的自定义域名  </li><li><code>你的jwt_secret</code> 替换为你设置的密钥</li></ul><hr><h2 id="4-4-设置收件路由规则"><a href="#4-4-设置收件路由规则" class="headerlink" title="4.4 设置收件路由规则"></a>4.4 设置收件路由规则</h2><p><img src="https://img.didadi.xyz/file/1782783884416_%E8%B7%AF%E7%94%B1%E8%A7%84%E5%88%99.png" alt="路由规则.png"></p><p>Cloudflare Email Routing → 添加规则 → 指向 Worker。</p><hr><h2 id="4-5-邮件发送设置（Resend）"><a href="#4-5-邮件发送设置（Resend）" class="headerlink" title="4.5 邮件发送设置（Resend）"></a>4.5 邮件发送设置（Resend）</h2><h3 id="✔-注册-Resend"><a href="#✔-注册-Resend" class="headerlink" title="✔ 注册 Resend"></a>✔ 注册 Resend</h3><p><a href="https://resend.com/">https://resend.com</a></p><hr><h3 id="✔-添加-Domain-与-API-Key"><a href="#✔-添加-Domain-与-API-Key" class="headerlink" title="✔ 添加 Domain 与 API Key"></a>✔ 添加 Domain 与 API Key</h3><p><img src="https://img.didadi.xyz/file/1782783950209_resend.png" alt="resend.png"></p><p>复制 API Key。</p><hr><h3 id="✔-添加-Webhook（发送状态回调）"><a href="#✔-添加-Webhook（发送状态回调）" class="headerlink" title="✔ 添加 Webhook（发送状态回调）"></a>✔ 添加 Webhook（发送状态回调）</h3><p>Webhook 地址：<code>https://你的worker域/api/webhooks</code></p><p>选择 <strong>email events</strong>（至少勾选 9 项）。</p><p><img src="https://img.didadi.xyz/file/1782783904966_webhook.png" alt="webhook.png"></p><hr><h1 id="5-常见错误与解决方案"><a href="#5-常见错误与解决方案" class="headerlink" title="5. 常见错误与解决方案"></a>5. 常见错误与解决方案</h1><h3 id="❌-错误-1：Worker-无法访问-KV-D1-R2"><a href="#❌-错误-1：Worker-无法访问-KV-D1-R2" class="headerlink" title="❌ 错误 1：Worker 无法访问 KV &#x2F; D1 &#x2F; R2"></a>❌ 错误 1：Worker 无法访问 KV &#x2F; D1 &#x2F; R2</h3><p><strong>解决：</strong> 检查绑定是否正确。</p><h3 id="❌-错误-2：初始化失败"><a href="#❌-错误-2：初始化失败" class="headerlink" title="❌ 错误 2：初始化失败"></a>❌ 错误 2：初始化失败</h3><p><strong>解决：</strong>  </p><ul><li>检查 jwt_secret 是否一致  </li><li>检查 Worker 域名是否正确</li></ul><h3 id="❌-错误-3：邮件无法发送"><a href="#❌-错误-3：邮件无法发送" class="headerlink" title="❌ 错误 3：邮件无法发送"></a>❌ 错误 3：邮件无法发送</h3><p><strong>解决：</strong>  </p><ul><li>检查 Resend API Key  </li><li>检查域名 DNS 记录  </li><li>检查 webhook 是否配置正确</li></ul><h3 id="❌-错误-4：邮件无法接收"><a href="#❌-错误-4：邮件无法接收" class="headerlink" title="❌ 错误 4：邮件无法接收"></a>❌ 错误 4：邮件无法接收</h3><p><strong>解决：</strong>  </p><ul><li>检查 Email Routing  </li><li>检查 Worker 路由规则  </li><li>检查 KV 是否正常写入</li></ul><hr><h1 id="6-我的真实使用体验"><a href="#6-我的真实使用体验" class="headerlink" title="6. 我的真实使用体验"></a>6. 我的真实使用体验</h1><p>以下是我的真实体验总结：</p><h3 id="✔-Cloud‑Mail-部署非常简单"><a href="#✔-Cloud‑Mail-部署非常简单" class="headerlink" title="✔ Cloud‑Mail 部署非常简单"></a>✔ Cloud‑Mail 部署非常简单</h3><p>只需要 Cloudflare + GitHub，无需服务器。</p><h3 id="✔-邮件接收稳定"><a href="#✔-邮件接收稳定" class="headerlink" title="✔ 邮件接收稳定"></a>✔ 邮件接收稳定</h3><p>KV + D1 存储可靠。</p><h3 id="✔-邮件发送依赖-Resend"><a href="#✔-邮件发送依赖-Resend" class="headerlink" title="✔ 邮件发送依赖 Resend"></a>✔ 邮件发送依赖 Resend</h3><p>送达率高，但需要正确配置域名。</p><h3 id="✔-小规模测试可能落在免费额度内"><a href="#✔-小规模测试可能落在免费额度内" class="headerlink" title="✔ 小规模测试可能落在免费额度内"></a>✔ 小规模测试可能落在免费额度内</h3><p>适合个人长期使用。</p><h3 id="✔-自定义域名邮箱非常爽"><a href="#✔-自定义域名邮箱非常爽" class="headerlink" title="✔ 自定义域名邮箱非常爽"></a>✔ 自定义域名邮箱非常爽</h3><p>如：  </p><ul><li><a href="mailto:&#104;&#x65;&#x6c;&#x6c;&#111;&#x40;&#121;&#111;&#117;&#x72;&#x64;&#111;&#109;&#97;&#105;&#110;&#46;&#x63;&#111;&#x6d;">hello@yourdomain.com</a>  </li><li><a href="mailto:&#x61;&#100;&#x6d;&#105;&#110;&#x40;&#121;&#x6f;&#117;&#x72;&#100;&#111;&#109;&#97;&#x69;&#110;&#46;&#x63;&#111;&#109;">admin@yourdomain.com</a></li></ul><h3 id="✔-适合学习-Cloudflare-技术栈"><a href="#✔-适合学习-Cloudflare-技术栈" class="headerlink" title="✔ 适合学习 Cloudflare 技术栈"></a>✔ 适合学习 Cloudflare 技术栈</h3><p>Workers、Pages、KV、D1 都能实际体验。</p><hr><h1 id="7-总结与建议"><a href="#7-总结与建议" class="headerlink" title="7. 总结与建议"></a>7. 总结与建议</h1><h3 id="✔-Cloud‑Mail-更适合作为可审计的学习或轻量收信方案"><a href="#✔-Cloud‑Mail-更适合作为可审计的学习或轻量收信方案" class="headerlink" title="✔ Cloud‑Mail 更适合作为可审计的学习或轻量收信方案"></a>✔ Cloud‑Mail 更适合作为可审计的学习或轻量收信方案</h3><p>无需服务器、无需付费。</p><h3 id="✔-适合个人与小团队"><a href="#✔-适合个人与小团队" class="headerlink" title="✔ 适合个人与小团队"></a>✔ 适合个人与小团队</h3><p>不适合企业级大规模邮件。</p><h3 id="✔-配置正确后非常稳定"><a href="#✔-配置正确后非常稳定" class="headerlink" title="✔ 配置正确后非常稳定"></a>✔ 配置正确后非常稳定</h3><p>尤其是收件功能。</p><h3 id="✔-建议长期使用-Resend"><a href="#✔-建议长期使用-Resend" class="headerlink" title="✔ 建议长期使用 Resend"></a>✔ 建议长期使用 Resend</h3><p>送达率高、配置简单。</p><h3 id="✔-本教程仅提供技术参考"><a href="#✔-本教程仅提供技术参考" class="headerlink" title="✔ 本教程仅提供技术参考"></a>✔ 本教程仅提供技术参考</h3><p>请确保你的行为符合相关法律法规与平台政策。</p>]]></content>
+        <content type="html"><![CDATA[<div class="video-container">  <iframe    src="https://www.youtube.com/embed/xABA7VxJXDs"    title="YouTube video"    frameborder="0"    allowfullscreen>  </iframe></div><hr><h1 id="1-背景与原理"><a href="#1-背景与原理" class="headerlink" title="1. 背景与原理"></a>1. 背景与原理</h1><blockquote><p>更新说明（2026-07-16）：本文所说的“免费”仅指在 Cloudflare 当前免费额度内可能不产生账单，不代表无限容量、永久免费或零维护成本。正式使用前请核对项目许可证、Cloudflare 最新定价以及邮件服务条款。</p></blockquote><p>传统邮箱系统（如 Gmail、Outlook）虽然稳定，但存在以下限制：</p><ul><li>免费版空间有限  </li><li>自定义域名邮箱需要付费  </li><li>邮件存储受限  </li><li>隐私依赖第三方平台</li></ul><p><a href="https://github.com/maillab/cloud-mail">Cloud-Mail</a> 是一个开源项目，利用 <strong>Cloudflare Workers + Pages + KV + D1 + Resend</strong> 等免费资源，实现：</p><ul><li>自建邮箱系统  </li><li>自定义域名邮箱  </li><li>可按项目设计使用 KV、D1 或 R2 存储，但容量和请求数受套餐额度限制  </li><li>零成本部署  </li><li>可以自行管理应用配置与部分邮件数据，但底层基础设施仍由云服务商提供</li></ul><p>原理非常简单：</p><blockquote><p><strong>Cloudflare Workers 负责邮件路由与 API，KV&#x2F;D1&#x2F;R2 负责存储，<a href="https://resend.com/">Resend</a> 负责邮件发送。</strong></p></blockquote><p>你只需要一个 <a href="https://cloudflare.com/">Cloudflare</a> 账号 + <a href="https://github.com/">GitHub</a> 账号，就能搭建属于自己的邮箱系统。</p><hr><h1 id="2-适用场景"><a href="#2-适用场景" class="headerlink" title="2. 适用场景"></a>2. 适用场景</h1><p>以下用户最适合使用 Cloud‑Mail：</p><h3 id="✔-想拥有自定义域名邮箱"><a href="#✔-想拥有自定义域名邮箱" class="headerlink" title="✔ 想拥有自定义域名邮箱"></a>✔ 想拥有自定义域名邮箱</h3><p>如：  </p><ul><li><a href="mailto:&#x61;&#x64;&#109;&#x69;&#x6e;&#x40;&#121;&#x6f;&#117;&#x72;&#100;&#111;&#x6d;&#x61;&#105;&#x6e;&#x2e;&#99;&#x6f;&#x6d;">admin@yourdomain.com</a>  </li><li><a href="mailto:&#99;&#x6f;&#110;&#116;&#x61;&#99;&#x74;&#x40;&#121;&#x6f;&#117;&#x72;&#x64;&#111;&#109;&#97;&#x69;&#110;&#x2e;&#x63;&#111;&#109;">contact@yourdomain.com</a></li></ul><h3 id="✔-想学习自定义域名收信与邮件路由"><a href="#✔-想学习自定义域名收信与邮件路由" class="headerlink" title="✔ 想学习自定义域名收信与邮件路由"></a>✔ 想学习自定义域名收信与邮件路由</h3><p>不受 Gmail &#x2F; Outlook 限制。</p><h3 id="✔-想自建隐私邮箱"><a href="#✔-想自建隐私邮箱" class="headerlink" title="✔ 想自建隐私邮箱"></a>✔ 想自建隐私邮箱</h3><p>邮件不经过第三方平台。</p><h3 id="✔-想零成本搭建邮箱系统"><a href="#✔-想零成本搭建邮箱系统" class="headerlink" title="✔ 想零成本搭建邮箱系统"></a>✔ 想零成本搭建邮箱系统</h3><p>Cloudflare 免费额度足够个人使用。</p><h3 id="✔-想学习-Cloudflare-Workers-Pages"><a href="#✔-想学习-Cloudflare-Workers-Pages" class="headerlink" title="✔ 想学习 Cloudflare Workers &#x2F; Pages"></a>✔ 想学习 Cloudflare Workers &#x2F; Pages</h3><p>Cloud‑Mail 是非常好的入门项目。</p><hr><h1 id="3-风险与限制"><a href="#3-风险与限制" class="headerlink" title="3. 风险与限制"></a>3. 风险与限制</h1><h3 id="❗-1-Cloudflare-免费额度有限"><a href="#❗-1-Cloudflare-免费额度有限" class="headerlink" title="❗ 1. Cloudflare 免费额度有限"></a>❗ 1. Cloudflare 免费额度有限</h3><p>Workers、KV、D1 都有免费限制，极端高频使用可能触发限流或者产生费用。</p><h3 id="❗-2-Resend-免费额度有限"><a href="#❗-2-Resend-免费额度有限" class="headerlink" title="❗ 2. Resend 免费额度有限"></a>❗ 2. <a href="https://resend.com/">Resend</a> 免费额度有限</h3><p>邮件发送量过大可能需要付费。</p><h3 id="❗-3-邮件系统需要维护"><a href="#❗-3-邮件系统需要维护" class="headerlink" title="❗ 3. 邮件系统需要维护"></a>❗ 3. 邮件系统需要维护</h3><p>如：  </p><ul><li>API 变更  </li><li>Workers 更新  </li><li>Resend 签名验证</li></ul><h3 id="❗-4-不适合企业级大规模邮件"><a href="#❗-4-不适合企业级大规模邮件" class="headerlink" title="❗ 4. 不适合企业级大规模邮件"></a>❗ 4. 不适合企业级大规模邮件</h3><p>Cloud‑Mail 更适合个人或小团队。</p><h3 id="❗-5-邮件送达率依赖-Resend"><a href="#❗-5-邮件送达率依赖-Resend" class="headerlink" title="❗ 5. 邮件送达率依赖 Resend"></a>❗ 5. 邮件送达率依赖 <a href="https://resend.com/">Resend</a></h3><p>如果域名配置不当，可能进入垃圾邮件。</p><h3 id="❗-6-自建邮箱系统需要一定技术基础"><a href="#❗-6-自建邮箱系统需要一定技术基础" class="headerlink" title="❗ 6. 自建邮箱系统需要一定技术基础"></a>❗ 6. 自建邮箱系统需要一定技术基础</h3><p>需要理解 Cloudflare、GitHub、API、KV、D1 等概念。</p><hr><h1 id="4-完整步骤"><a href="#4-完整步骤" class="headerlink" title="4. 完整步骤"></a>4. 完整步骤</h1><p>以下步骤适配 2026 年最新 Cloud‑Mail 部署流程。</p><hr><h2 id="4-1-注册-Cloudflare-与-GitHub"><a href="#4-1-注册-Cloudflare-与-GitHub" class="headerlink" title="4.1 注册 Cloudflare 与 GitHub"></a>4.1 注册 Cloudflare 与 GitHub</h2><ul><li>注册 Cloudflare：<a href="https://cloudflare.com/">https://cloudflare.com</a>  </li><li>注册 GitHub：<a href="https://github.com/">https://github.com</a></li></ul><hr><h2 id="4-2-克隆-Cloud‑Mail-项目到自己的仓库"><a href="#4-2-克隆-Cloud‑Mail-项目到自己的仓库" class="headerlink" title="4.2 克隆 Cloud‑Mail 项目到自己的仓库"></a>4.2 克隆 Cloud‑Mail 项目到自己的仓库</h2><p>登录 GitHub → 打开项目：</p><blockquote><p><a href="https://github.com/maillab/cloud-mail">https://github.com/maillab/cloud-mail</a></p></blockquote><p>点击 <strong>Fork</strong> 克隆到自己的仓库。</p><hr><h2 id="4-3-在-Cloudflare-中部署-Workers"><a href="#4-3-在-Cloudflare-中部署-Workers" class="headerlink" title="4.3 在 Cloudflare 中部署 Workers"></a>4.3 在 Cloudflare 中部署 Workers</h2><h3 id="✔-创建-Worker"><a href="#✔-创建-Worker" class="headerlink" title="✔ 创建 Worker"></a>✔ 创建 Worker</h3><p><img src="https://img.didadi.xyz/file/1782783764777_%E5%88%9B%E5%BB%BAworker.png" alt="创建worker.png"></p><hr><h3 id="✔-导入-GitHub-项目"><a href="#✔-导入-GitHub-项目" class="headerlink" title="✔ 导入 GitHub 项目"></a>✔ 导入 GitHub 项目</h3><p><img src="https://img.didadi.xyz/file/1782783792508_%E5%AF%BC%E5%85%A5github%E9%A1%B9%E7%9B%AE.png" alt="导入github项目.png"></p><p>⚠️ <strong>注意：部署路径不要改变</strong></p><p><img src="https://img.didadi.xyz/file/1782783815283_%E9%83%A8%E7%BD%B2%E8%B7%AF%E5%BE%84.png" alt="部署路径.png"></p><hr><h3 id="✔-添加变量与密钥"><a href="#✔-添加变量与密钥" class="headerlink" title="✔ 添加变量与密钥"></a>✔ 添加变量与密钥</h3><p><img src="https://img.didadi.xyz/file/1782783838352_%E5%8F%98%E9%87%8F%E4%B8%8E%E5%AF%86%E9%92%A5%E8%AE%BE%E7%BD%AE.png" alt="变量与密钥设置.png"></p><hr><h3 id="✔-添加并绑定-KV-与-D1-数据库"><a href="#✔-添加并绑定-KV-与-D1-数据库" class="headerlink" title="✔ 添加并绑定 KV 与 D1 数据库"></a>✔ 添加并绑定 KV 与 D1 数据库</h3><p><img src="https://img.didadi.xyz/file/1782783848885_%E7%BB%91%E5%AE%9A%E4%BD%8D%E7%BD%AE.png" alt="绑定位置.png"></p><p><img src="https://img.didadi.xyz/file/1782783873377_%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%91%E5%AE%9A.png" alt="数据库绑定.png"></p><hr><h3 id="✔-初始化项目数据库"><a href="#✔-初始化项目数据库" class="headerlink" title="✔ 初始化项目数据库"></a>✔ 初始化项目数据库</h3><p>浏览器输入：<code>https://你的worker域/api/init/你的jwt_secret</code></p><p>将：</p><ul><li><code>你的worker域</code> 替换为你的自定义域名  </li><li><code>你的jwt_secret</code> 替换为你设置的密钥</li></ul><hr><h2 id="4-4-设置收件路由规则"><a href="#4-4-设置收件路由规则" class="headerlink" title="4.4 设置收件路由规则"></a>4.4 设置收件路由规则</h2><p><img src="https://img.didadi.xyz/file/1782783884416_%E8%B7%AF%E7%94%B1%E8%A7%84%E5%88%99.png" alt="路由规则.png"></p><p>Cloudflare Email Routing → 添加规则 → 指向 Worker。</p><hr><h2 id="4-5-邮件发送设置（Resend）"><a href="#4-5-邮件发送设置（Resend）" class="headerlink" title="4.5 邮件发送设置（Resend）"></a>4.5 邮件发送设置（Resend）</h2><h3 id="✔-注册-Resend"><a href="#✔-注册-Resend" class="headerlink" title="✔ 注册 Resend"></a>✔ 注册 Resend</h3><p><a href="https://resend.com/">https://resend.com</a></p><hr><h3 id="✔-添加-Domain-与-API-Key"><a href="#✔-添加-Domain-与-API-Key" class="headerlink" title="✔ 添加 Domain 与 API Key"></a>✔ 添加 Domain 与 API Key</h3><p><img src="https://img.didadi.xyz/file/1782783950209_resend.png" alt="resend.png"></p><p>复制 API Key。</p><hr><h3 id="✔-添加-Webhook（发送状态回调）"><a href="#✔-添加-Webhook（发送状态回调）" class="headerlink" title="✔ 添加 Webhook（发送状态回调）"></a>✔ 添加 Webhook（发送状态回调）</h3><p>Webhook 地址：<code>https://你的worker域/api/webhooks</code></p><p>选择 <strong>email events</strong>（至少勾选 9 项）。</p><p><img src="https://img.didadi.xyz/file/1782783904966_webhook.png" alt="webhook.png"></p><hr><h1 id="5-常见错误与解决方案"><a href="#5-常见错误与解决方案" class="headerlink" title="5. 常见错误与解决方案"></a>5. 常见错误与解决方案</h1><h3 id="❌-错误-1：Worker-无法访问-KV-D1-R2"><a href="#❌-错误-1：Worker-无法访问-KV-D1-R2" class="headerlink" title="❌ 错误 1：Worker 无法访问 KV &#x2F; D1 &#x2F; R2"></a>❌ 错误 1：Worker 无法访问 KV &#x2F; D1 &#x2F; R2</h3><p><strong>解决：</strong> 检查绑定是否正确。</p><h3 id="❌-错误-2：初始化失败"><a href="#❌-错误-2：初始化失败" class="headerlink" title="❌ 错误 2：初始化失败"></a>❌ 错误 2：初始化失败</h3><p><strong>解决：</strong>  </p><ul><li>检查 jwt_secret 是否一致  </li><li>检查 Worker 域名是否正确</li></ul><h3 id="❌-错误-3：邮件无法发送"><a href="#❌-错误-3：邮件无法发送" class="headerlink" title="❌ 错误 3：邮件无法发送"></a>❌ 错误 3：邮件无法发送</h3><p><strong>解决：</strong>  </p><ul><li>检查 Resend API Key  </li><li>检查域名 DNS 记录  </li><li>检查 webhook 是否配置正确</li></ul><h3 id="❌-错误-4：邮件无法接收"><a href="#❌-错误-4：邮件无法接收" class="headerlink" title="❌ 错误 4：邮件无法接收"></a>❌ 错误 4：邮件无法接收</h3><p><strong>解决：</strong>  </p><ul><li>检查 Email Routing  </li><li>检查 Worker 路由规则  </li><li>检查 KV 是否正常写入</li></ul><hr><h1 id="6-我的真实使用体验"><a href="#6-我的真实使用体验" class="headerlink" title="6. 我的真实使用体验"></a>6. 我的真实使用体验</h1><p>以下是我的真实体验总结：</p><h3 id="✔-Cloud‑Mail-部署非常简单"><a href="#✔-Cloud‑Mail-部署非常简单" class="headerlink" title="✔ Cloud‑Mail 部署非常简单"></a>✔ Cloud‑Mail 部署非常简单</h3><p>只需要 Cloudflare + GitHub，无需服务器。</p><h3 id="✔-邮件接收稳定"><a href="#✔-邮件接收稳定" class="headerlink" title="✔ 邮件接收稳定"></a>✔ 邮件接收稳定</h3><p>KV + D1 存储可靠。</p><h3 id="✔-邮件发送依赖-Resend"><a href="#✔-邮件发送依赖-Resend" class="headerlink" title="✔ 邮件发送依赖 Resend"></a>✔ 邮件发送依赖 Resend</h3><p>送达率高，但需要正确配置域名。</p><h3 id="✔-小规模测试可能落在免费额度内"><a href="#✔-小规模测试可能落在免费额度内" class="headerlink" title="✔ 小规模测试可能落在免费额度内"></a>✔ 小规模测试可能落在免费额度内</h3><p>适合个人长期使用。</p><h3 id="✔-自定义域名邮箱非常爽"><a href="#✔-自定义域名邮箱非常爽" class="headerlink" title="✔ 自定义域名邮箱非常爽"></a>✔ 自定义域名邮箱非常爽</h3><p>如：  </p><ul><li><a href="mailto:&#104;&#101;&#108;&#108;&#111;&#64;&#x79;&#111;&#x75;&#114;&#100;&#x6f;&#x6d;&#97;&#105;&#x6e;&#x2e;&#x63;&#x6f;&#x6d;">hello@yourdomain.com</a>  </li><li><a href="mailto:&#x61;&#x64;&#109;&#105;&#110;&#64;&#121;&#111;&#x75;&#114;&#100;&#x6f;&#x6d;&#97;&#x69;&#x6e;&#x2e;&#99;&#111;&#109;">admin@yourdomain.com</a></li></ul><h3 id="✔-适合学习-Cloudflare-技术栈"><a href="#✔-适合学习-Cloudflare-技术栈" class="headerlink" title="✔ 适合学习 Cloudflare 技术栈"></a>✔ 适合学习 Cloudflare 技术栈</h3><p>Workers、Pages、KV、D1 都能实际体验。</p><hr><h1 id="7-总结与建议"><a href="#7-总结与建议" class="headerlink" title="7. 总结与建议"></a>7. 总结与建议</h1><h3 id="✔-Cloud‑Mail-更适合作为可审计的学习或轻量收信方案"><a href="#✔-Cloud‑Mail-更适合作为可审计的学习或轻量收信方案" class="headerlink" title="✔ Cloud‑Mail 更适合作为可审计的学习或轻量收信方案"></a>✔ Cloud‑Mail 更适合作为可审计的学习或轻量收信方案</h3><p>无需服务器、无需付费。</p><h3 id="✔-适合个人与小团队"><a href="#✔-适合个人与小团队" class="headerlink" title="✔ 适合个人与小团队"></a>✔ 适合个人与小团队</h3><p>不适合企业级大规模邮件。</p><h3 id="✔-配置正确后非常稳定"><a href="#✔-配置正确后非常稳定" class="headerlink" title="✔ 配置正确后非常稳定"></a>✔ 配置正确后非常稳定</h3><p>尤其是收件功能。</p><h3 id="✔-建议长期使用-Resend"><a href="#✔-建议长期使用-Resend" class="headerlink" title="✔ 建议长期使用 Resend"></a>✔ 建议长期使用 Resend</h3><p>送达率高、配置简单。</p><h3 id="✔-本教程仅提供技术参考"><a href="#✔-本教程仅提供技术参考" class="headerlink" title="✔ 本教程仅提供技术参考"></a>✔ 本教程仅提供技术参考</h3><p>请确保你的行为符合相关法律法规与平台政策。</p>]]></content>
       
       
       <categories>
@@ -20,9 +20,9 @@
       
         <tags>
             
-            <tag> GitHub项目 </tag>
-            
             <tag> 免费软件 </tag>
+            
+            <tag> GitHub项目 </tag>
             
             <tag> Cloudflare </tag>
             
@@ -124,9 +124,9 @@
       
         <tags>
             
-            <tag> Google Play </tag>
-            
             <tag> 谷歌服务与设备 </tag>
+            
+            <tag> Google Play </tag>
             
         </tags>
       
@@ -205,9 +205,9 @@
       
         <tags>
             
-            <tag> GitHub项目 </tag>
-            
             <tag> 免费软件 </tag>
+            
+            <tag> GitHub项目 </tag>
             
             <tag> 外区账号注册 </tag>
             
@@ -236,9 +236,9 @@
       
         <tags>
             
-            <tag> v2rayN </tag>
-            
             <tag> 免费软件 </tag>
+            
+            <tag> v2rayN </tag>
             
             <tag> 代理工具 </tag>
             
@@ -267,13 +267,13 @@
       
         <tags>
             
-            <tag> GitHub项目 </tag>
-            
             <tag> 免费软件 </tag>
             
             <tag> 虚拟机 </tag>
             
             <tag> AI工具 </tag>
+            
+            <tag> GitHub项目 </tag>
             
         </tags>
       
@@ -542,9 +542,9 @@
       
         <tags>
             
-            <tag> GitHub项目 </tag>
-            
             <tag> AI工具 </tag>
+            
+            <tag> GitHub项目 </tag>
             
         </tags>
       
@@ -602,9 +602,9 @@
       
         <tags>
             
-            <tag> GitHub项目 </tag>
-            
             <tag> AI工具 </tag>
+            
+            <tag> GitHub项目 </tag>
             
         </tags>
       
@@ -629,9 +629,9 @@
       
         <tags>
             
-            <tag> GitHub项目 </tag>
-            
             <tag> 免费软件 </tag>
+            
+            <tag> GitHub项目 </tag>
             
         </tags>
       
@@ -832,9 +832,9 @@
       
         <tags>
             
-            <tag> GitHub项目 </tag>
-            
             <tag> 免费软件 </tag>
+            
+            <tag> GitHub项目 </tag>
             
         </tags>
       
@@ -973,9 +973,9 @@
       
         <tags>
             
-            <tag> GitHub项目 </tag>
-            
             <tag> AI工具 </tag>
+            
+            <tag> GitHub项目 </tag>
             
         </tags>
       
@@ -1112,9 +1112,9 @@
       
         <tags>
             
-            <tag> GitHub项目 </tag>
-            
             <tag> AI工具 </tag>
+            
+            <tag> GitHub项目 </tag>
             
         </tags>
       
@@ -1366,9 +1366,9 @@
       
         <tags>
             
-            <tag> GitHub项目 </tag>
-            
             <tag> 免费软件 </tag>
+            
+            <tag> GitHub项目 </tag>
             
         </tags>
       
@@ -1439,7 +1439,7 @@
       <link href="/posts/30397.html"/>
       <url>/posts/30397.html</url>
       
-        <content type="html"><![CDATA[<div class="video-container">  <iframe    src="https://www.youtube.com/embed/o11LAtpy994"    title="YouTube video"    frameborder="0"    allowfullscreen>  </iframe></div><hr><h1 id="使用Amazon-AWS免费VPS搭建个人专属上网节点"><a href="#使用Amazon-AWS免费VPS搭建个人专属上网节点" class="headerlink" title="使用Amazon AWS免费VPS搭建个人专属上网节点"></a>使用Amazon AWS免费VPS搭建个人专属上网节点</h1><p>在本篇教程中，将详细说明如何使用Amazon AWS提供的免费VPS套餐搭建个人专属的上网节点，实现安全、稳定、高速的上网体验。</p><h2 id="一、前期准备"><a href="#一、前期准备" class="headerlink" title="一、前期准备"></a>一、前期准备</h2><ul><li>有效的邮箱</li><li>一张可用的个人信用卡（仅用于AWS账户验证，不会扣费）</li></ul><h2 id="二、注册亚马逊AWS账户"><a href="#二、注册亚马逊AWS账户" class="headerlink" title="二、注册亚马逊AWS账户"></a>二、注册亚马逊AWS账户</h2><ol><li>打开<a href="https://aws.amazon.com/">Amazon AWS官网</a>，注册一个新账户。</li><li>使用虚拟身份生成工具（例如：<a href="https://www.fakepersongenerator.com/">Fake Person Generator</a>）生成注册所需信息。</li><li>完成账户注册并激活。</li><li>创建免费的EC2实例，选择免费套餐实例类型（推荐t2.micro或t3.micro），并选择合适的区域（如东京、新加坡等）。</li></ol><h2 id="三、安装X-ui面板"><a href="#三、安装X-ui面板" class="headerlink" title="三、安装X-ui面板"></a>三、安装X-ui面板</h2><p>使用SSH工具（例如 <a href="https://the.earth.li/~sgtatham/putty/latest/w64/putty-64bit-0.83-installer.msi">PuTTY</a>、<a href="https://download.mobatek.net/2512025030285413/MobaXterm_Installer_v25.1.zip">MobaXterm</a>）连接你的AWS EC2实例，并执行以下安装命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)</span><br></pre></td></tr></table></figure><h2 id="四、配置X-ui节点"><a href="#四、配置X-ui节点" class="headerlink" title="四、配置X-ui节点"></a>四、配置X-ui节点</h2><ol><li>安装完成后访问X-ui后台面板。</li><li>新建一个入站节点，详细配置V2rayN节点协议和端口。</li><li>保存并启动节点。</li></ol><h2 id="五、客户端安装及配置"><a href="#五、客户端安装及配置" class="headerlink" title="五、客户端安装及配置"></a>五、客户端安装及配置</h2><ol><li>下载并解压<a href="https://github.com/2dust/v2rayN/releases/download/7.10.5/v2rayN-windows-64-SelfContained.zip">V2rayN Windows客户端</a>。</li><li>打开客户端，新增服务器配置，输入刚才搭建好的节点信息（IP地址、端口、协议等）。</li><li>保存并启动连接，检查节点状态。</li></ol><h2 id="六、测试与优化"><a href="#六、测试与优化" class="headerlink" title="六、测试与优化"></a>六、测试与优化</h2><ul><li>使用浏览器访问国际网站，确认节点连接成功。</li><li>可尝试切换不同的EC2区域，获得更佳的网络速度。</li></ul><h2 id="七、注意事项"><a href="#七、注意事项" class="headerlink" title="七、注意事项"></a>七、注意事项</h2><ul><li>AWS免费套餐的流量和使用时长有限制，请留意AWS的使用情况，避免超出免费额度。</li><li>定期关注AWS账户后台，确保不产生额外费用。</li></ul><h2 id="八、常见问题"><a href="#八、常见问题" class="headerlink" title="八、常见问题"></a>八、常见问题</h2><p>如遇问题，请在<a href="https://t.me/JRLMG_g">电报群</a>里留言或<a href="mailto:&#x6a;&#105;&#110;&#x6d;&#111;&#x68;&#101;&#50;&#48;&#x30;&#48;&#64;&#x67;&#x6d;&#97;&#105;&#x6c;&#46;&#x63;&#x6f;&#109;">发送邮件</a>交流。</p>]]></content>
+        <content type="html"><![CDATA[<div class="video-container">  <iframe    src="https://www.youtube.com/embed/o11LAtpy994"    title="YouTube video"    frameborder="0"    allowfullscreen>  </iframe></div><hr><h1 id="使用Amazon-AWS免费VPS搭建个人专属上网节点"><a href="#使用Amazon-AWS免费VPS搭建个人专属上网节点" class="headerlink" title="使用Amazon AWS免费VPS搭建个人专属上网节点"></a>使用Amazon AWS免费VPS搭建个人专属上网节点</h1><p>在本篇教程中，将详细说明如何使用Amazon AWS提供的免费VPS套餐搭建个人专属的上网节点，实现安全、稳定、高速的上网体验。</p><h2 id="一、前期准备"><a href="#一、前期准备" class="headerlink" title="一、前期准备"></a>一、前期准备</h2><ul><li>有效的邮箱</li><li>一张可用的个人信用卡（仅用于AWS账户验证，不会扣费）</li></ul><h2 id="二、注册亚马逊AWS账户"><a href="#二、注册亚马逊AWS账户" class="headerlink" title="二、注册亚马逊AWS账户"></a>二、注册亚马逊AWS账户</h2><ol><li>打开<a href="https://aws.amazon.com/">Amazon AWS官网</a>，注册一个新账户。</li><li>使用虚拟身份生成工具（例如：<a href="https://www.fakepersongenerator.com/">Fake Person Generator</a>）生成注册所需信息。</li><li>完成账户注册并激活。</li><li>创建免费的EC2实例，选择免费套餐实例类型（推荐t2.micro或t3.micro），并选择合适的区域（如东京、新加坡等）。</li></ol><h2 id="三、安装X-ui面板"><a href="#三、安装X-ui面板" class="headerlink" title="三、安装X-ui面板"></a>三、安装X-ui面板</h2><p>使用SSH工具（例如 <a href="https://the.earth.li/~sgtatham/putty/latest/w64/putty-64bit-0.83-installer.msi">PuTTY</a>、<a href="https://download.mobatek.net/2512025030285413/MobaXterm_Installer_v25.1.zip">MobaXterm</a>）连接你的AWS EC2实例，并执行以下安装命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)</span><br></pre></td></tr></table></figure><h2 id="四、配置X-ui节点"><a href="#四、配置X-ui节点" class="headerlink" title="四、配置X-ui节点"></a>四、配置X-ui节点</h2><ol><li>安装完成后访问X-ui后台面板。</li><li>新建一个入站节点，详细配置V2rayN节点协议和端口。</li><li>保存并启动节点。</li></ol><h2 id="五、客户端安装及配置"><a href="#五、客户端安装及配置" class="headerlink" title="五、客户端安装及配置"></a>五、客户端安装及配置</h2><ol><li>下载并解压<a href="https://github.com/2dust/v2rayN/releases/download/7.10.5/v2rayN-windows-64-SelfContained.zip">V2rayN Windows客户端</a>。</li><li>打开客户端，新增服务器配置，输入刚才搭建好的节点信息（IP地址、端口、协议等）。</li><li>保存并启动连接，检查节点状态。</li></ol><h2 id="六、测试与优化"><a href="#六、测试与优化" class="headerlink" title="六、测试与优化"></a>六、测试与优化</h2><ul><li>使用浏览器访问国际网站，确认节点连接成功。</li><li>可尝试切换不同的EC2区域，获得更佳的网络速度。</li></ul><h2 id="七、注意事项"><a href="#七、注意事项" class="headerlink" title="七、注意事项"></a>七、注意事项</h2><ul><li>AWS免费套餐的流量和使用时长有限制，请留意AWS的使用情况，避免超出免费额度。</li><li>定期关注AWS账户后台，确保不产生额外费用。</li></ul><h2 id="八、常见问题"><a href="#八、常见问题" class="headerlink" title="八、常见问题"></a>八、常见问题</h2><p>如遇问题，请在<a href="https://t.me/JRLMG_g">电报群</a>里留言或<a href="mailto:&#x6a;&#x69;&#110;&#x6d;&#x6f;&#104;&#x65;&#x32;&#48;&#x30;&#48;&#x40;&#103;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#x6d;">发送邮件</a>交流。</p>]]></content>
       
       
       <categories>
@@ -1513,9 +1513,9 @@
       
         <tags>
             
-            <tag> GitHub项目 </tag>
-            
             <tag> AI工具 </tag>
+            
+            <tag> GitHub项目 </tag>
             
         </tags>
       

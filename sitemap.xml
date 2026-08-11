@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jinmohe.com/parody/</loc>
+    
+    <lastmod>2026-08-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://jinmohe.com/posts/15519</loc>
     
     <lastmod>2026-08-11</lastmod>
@@ -14,15 +23,6 @@
     <loc>http://jinmohe.com/videos/</loc>
     
     <lastmod>2026-08-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://jinmohe.com/parody/</loc>
-    
-    <lastmod>2026-08-10</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -533,6 +533,20 @@
 
   
   <url>
+    <loc>http://jinmohe.com/tags/%E5%85%8D%E8%B4%B9%E8%BD%AF%E4%BB%B6/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://jinmohe.com/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://jinmohe.com/tags/VPS%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -555,6 +569,13 @@
   
   <url>
     <loc>http://jinmohe.com/tags/%E5%85%8D%E8%B4%B9%E4%BA%9A%E9%A9%AC%E9%80%8A%E4%BA%91/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://jinmohe.com/tags/AI%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -596,27 +617,6 @@
   </url>
   
   <url>
-    <loc>http://jinmohe.com/tags/%E5%85%8D%E8%B4%B9%E8%BD%AF%E4%BB%B6/</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://jinmohe.com/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://jinmohe.com/tags/AI%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://jinmohe.com/tags/Cloudflare/</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -625,27 +625,6 @@
   
   <url>
     <loc>http://jinmohe.com/tags/RackNerd/</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://jinmohe.com/tags/%E6%B5%B7%E5%A4%96%E6%89%8B%E6%9C%BA%E5%8F%B7%E4%B8%8EeSIM/</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://jinmohe.com/tags/Ultra-Mobile/</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://jinmohe.com/tags/WiFi-Calling/</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -687,13 +666,6 @@
   </url>
   
   <url>
-    <loc>http://jinmohe.com/tags/Apple-ID/</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://jinmohe.com/tags/Google-Voice/</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -715,7 +687,21 @@
   </url>
   
   <url>
-    <loc>http://jinmohe.com/tags/%E5%85%8D%E8%B4%B9%E8%B0%B7%E6%AD%8C%E4%BA%91/</loc>
+    <loc>http://jinmohe.com/tags/%E6%B5%B7%E5%A4%96%E6%89%8B%E6%9C%BA%E5%8F%B7%E4%B8%8EeSIM/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://jinmohe.com/tags/Ultra-Mobile/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://jinmohe.com/tags/WiFi-Calling/</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -729,7 +715,14 @@
   </url>
   
   <url>
-    <loc>http://jinmohe.com/tags/Google-Play/</loc>
+    <loc>http://jinmohe.com/tags/%E5%85%8D%E8%B4%B9%E8%B0%B7%E6%AD%8C%E4%BA%91/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://jinmohe.com/tags/Apple-ID/</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -737,6 +730,27 @@
   
   <url>
     <loc>http://jinmohe.com/tags/%E8%B0%B7%E6%AD%8C%E6%9C%8D%E5%8A%A1%E4%B8%8E%E8%AE%BE%E5%A4%87/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://jinmohe.com/tags/Google-Play/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://jinmohe.com/tags/PayPal/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://jinmohe.com/tags/Apple%E7%A4%BC%E5%93%81%E5%8D%A1/</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -771,21 +785,14 @@
   </url>
   
   <url>
-    <loc>http://jinmohe.com/tags/PayPal/</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://jinmohe.com/tags/Apple%E7%A4%BC%E5%93%81%E5%8D%A1/</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://jinmohe.com/tags/TalkaTone/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://jinmohe.com/tags/ChatGPT/</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -799,7 +806,28 @@
   </url>
   
   <url>
-    <loc>http://jinmohe.com/tags/ChatGPT/</loc>
+    <loc>http://jinmohe.com/tags/%E6%96%87%E8%89%BA%E7%89%87/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://jinmohe.com/tags/%E8%87%AA%E5%BB%BA%E8%8A%82%E7%82%B9/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://jinmohe.com/tags/Gitub%E9%A1%B9%E7%9B%AE/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://jinmohe.com/tags/VPN/</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -833,45 +861,17 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>http://jinmohe.com/tags/Gitub%E9%A1%B9%E7%9B%AE/</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://jinmohe.com/tags/%E8%87%AA%E5%BB%BA%E8%8A%82%E7%82%B9/</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://jinmohe.com/tags/VPN/</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://jinmohe.com/tags/%E6%96%87%E8%89%BA%E7%89%87/</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
   
   <url>
-    <loc>http://jinmohe.com/categories/%E5%BC%80%E7%9C%BC%E7%9C%8B%E4%B8%96%E7%95%8C/</loc>
+    <loc>http://jinmohe.com/categories/%E8%A7%A3%E9%94%81%E5%B0%8F%E9%AD%94%E7%9B%92/</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://jinmohe.com/categories/%E8%A7%A3%E9%94%81%E5%B0%8F%E9%AD%94%E7%9B%92/</loc>
+    <loc>http://jinmohe.com/categories/%E5%BC%80%E7%9C%BC%E7%9C%8B%E4%B8%96%E7%95%8C/</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
